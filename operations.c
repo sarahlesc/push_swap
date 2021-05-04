@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+// malloc chaque tableau avec size_a + size_b
+
 void 	initialize_tab(t_tab *tab)
 {
 	tab->size_a = 0;
@@ -8,48 +10,25 @@ void 	initialize_tab(t_tab *tab)
 
 int		swap_a(t_tab *tab)
 {
-	int		i;
-	char	**result;
+	char	c;
 
-	i = 2;
 	if (tab->size_a == 0 || tab->size_a == 1)
 		return (0);
-	if (!(result = malloc(sizeof(char **) * tab->size_a)))
-		return (-1);
-	result[0][0] = tab->a[1][0];
-	result[1][0] = tab->a[0][0];
-	while (tab->a[i] != '\0')
-	{
-		result[i][0] = tab->a[i][0];
-		i++;
-	}
-	i = -1;
-	while (++i < tab->size_a)
-		free (tab->a[i]);
-	tab->a = result;
+	c = tab->a[1][0];
+	tab->a[1][0] = tab->a[0][0];
+	tab->a[0][0] = c;
 	return (0);
 }
 
 int		swap_b(t_tab *tab)
 {
-	int		i;
-	char	**result;
+	char	c;
 
-	i = 2;
 	if (tab->size_b == 0 || tab->size_b == 1)
 		return (0);
-	if (!(result = malloc(sizeof(char *) * ft_strlen(tab->b))))
-		return (-1);
-	result[0][0] = tab->b[1][0];
-	result[1][0] = tab->b[0][0];
-	while (tab->b[i] != '\0')
-	{
-		result[i][0] = tab->b[i][0];
-		i++;
-	}
-	while (++i < tab->size_b)
-		free (tab->b[i]);
-	tab->b = result;
+	c = tab->b[1][0];
+	tab->b[1][0] = tab->b[0][0];
+	tab->b[0][0] = c;
 	return (0);
 }
 
@@ -61,16 +40,40 @@ void	swap_both(t_tab *tab)
 
 int		push_a(t_tab *tab)
 {
+	char c;
+
 	if (tab->size_b == 0)
 		return (0);
+	c = tab->a[0][0];
 	tab->a[0][0] = tab->b[0][0];
+	while (i <= tab->size_a)
+	{
+		tab->a[i + 1] = tab->a[i];
+		i++;
+	}
+	tab->a[1][0] = c;
+	tab->size_a++;
+	tab->size_b--;
 }
 
 int		push_b(t_tab *tab)
 {
+	char c;
+	int i;
+
+	i = 1;
 	if (tab->size_a == 0)
 		return (0);
+	c = tab->b[0][0];
 	tab->b[0][0] = tab->a[0][0];
+	while (i <= tab->size_b)
+	{
+		tab->b[i + 1] = tab->b[i];
+		i++;
+	}
+	tab->b[1][0] = c;
+	tab->size_b++;
+	tab->size_a--;
 }
 
 int		rotate_a(t_tab *tab)
