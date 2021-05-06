@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 // malloc chaque tableau avec size_a + size_b
 
