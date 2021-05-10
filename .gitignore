@@ -1,0 +1,19 @@
+# OS generated files
+.DS_store
+
+# Compiled source
+*.o
+*.com
+*.class
+*.dll
+*.exe
+*.so
+
+#Executables
+a.out
+*.swp
+checker
+push_swap
+
+#Debug
+.dSYM/

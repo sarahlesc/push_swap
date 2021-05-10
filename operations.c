@@ -1,162 +1,56 @@
 #include "include/push_swap.h"
 
-// malloc chaque tableau avec size_a + size_b
-
-void 	initialize_tab(t_tab *tab)
-{
-	tab->size_a = 0;
-	tab->size_b = 0;
-}
-
-int		swap_a(t_tab *tab)
-{
-	char	c;
-
-	if (tab->size_a == 0 || tab->size_a == 1)
-		return (0);
-	c = tab->a[1][0];
-	tab->a[1][0] = tab->a[0][0];
-	tab->a[0][0] = c;
-	return (0);
-}
-
-int		swap_b(t_tab *tab)
-{
-	char	c;
-
-	if (tab->size_b == 0 || tab->size_b == 1)
-		return (0);
-	c = tab->b[1][0];
-	tab->b[1][0] = tab->b[0][0];
-	tab->b[0][0] = c;
-	return (0);
-}
-
-void	swap_both(t_tab *tab)
-{
-	swap_a(tab);
-	swap_b(tab);
-}
-
-int		push_a(t_tab *tab)
-{
-	char c;
-
-	if (tab->size_b == 0)
-		return (0);
-	c = tab->a[0][0];
-	tab->a[0][0] = tab->b[0][0];
-	while (i <= tab->size_a)
-	{
-		tab->a[i + 1] = tab->a[i];
-		i++;
-	}
-	tab->a[1][0] = c;
-	tab->size_a++;
-	tab->size_b--;
-}
-
-int		push_b(t_tab *tab)
-{
-	char c;
-	int i;
-
-	i = 1;
-	if (tab->size_a == 0)
-		return (0);
-	c = tab->b[0][0];
-	tab->b[0][0] = tab->a[0][0];
-	while (i <= tab->size_b)
-	{
-		tab->b[i + 1] = tab->b[i];
-		i++;
-	}
-	tab->b[1][0] = c;
-	tab->size_b++;
-	tab->size_a--;
-}
-
-int		rotate_a(t_tab *tab)
+int		swap_list(t_list **stack)
 {
 	int i;
-	char c;
+	t_list *temp;
 
-	i = tab->size_a;
-	if (tab->size_a == 0)
-		return (0);
-	c = tab->a[0][0];
-	while (i > 0)
-	{
-		tab->a[i - 1][0] = tab->a[i][0];
-		i--;
-	}
-	tab->a[tab->size_a][0] = c;
-	return (0);
-}
-
-int		rotate_b(t_tab *tab)
-{
-	int i;
-	char c;
-
-	i = tab->size_b;
-	if (tab->size_b == 0)
-		return (0);
-	c = tab->b[0][0];
-	while (i > 0)
-	{
-		tab->b[i - 1][0] = tab->b[i][0];
-		i--;
-	}
-	tab->b[tab->size_b][0] = c;
-	return (0);
-}
-
-int		rotate_both(t_tab *tab)
-{
-	rotate_a(tab);
-	rotate_b(tab);
-}
-
-int		reverse_rotate_a(t_tab *tab)
-{
-	int i;
-	char c;
-
+	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
+		return (-1);
 	i = 0;
-	if (tab->size_a == 0 || tab->size_a == 1)
-		return (0);
-	c = tab->a[tab->size_a][0];
-	while (i < tab->size_a)
+	while (temp != NULL)
 	{
-		tab->a[i + 1][0] = tab->a[i][0];
+		temp->next = 
 		i++;
+		if (i == 2)
+			break;
 	}
-	tab->a[0][0] = c;
 	return (0);
 }
 
-int		reverse_rotate_b(t_tab *tab)
+void	swap_both(t_list **stack_a, t_liste **stak_b)
 {
-	int i;
-	char c;
+	swap_list(stack_a);
+	swap_list(stack_b);
+}
 
-	i = 0;
-	if (tab->size_b == 0 || tab->size_b == 1)
-		return (0);
-	c = tab->b[tab->size_b][0];
-	while (i < tab->size_b)
-	{
-		tab->b[i + 1][0] = tab->b[i][0];
-		i++;
-	}
-	tab->b[0][0] = c;
-	return (0);
+int		push_list(t_list **first_stack, t_list **second_stack)
+{
+	if (ft_lstsize(*second_stack) == 0)
+		return (-1);
+}
+
+int		rotate_list(t_list **stack)
+{
+	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
+		return (-1);
+}
+
+void	rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	rotate_list(stack_a);
+	rotate_list(stack_b);
+}
+
+void	reverse_rotate_list(t_list **stack)
+{
+	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
+		return (-1);
 }
 
 
-void	reverse_rotate_both(t_tab *tab)
+void	reverse_rotate_both(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate_a(tab);
-	reverse_rotate_b(tab);
+	reverse_rotate_list(stack_a);
+	reverse_rotate_list(stack_b);
 }
