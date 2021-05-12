@@ -1,14 +1,9 @@
-NAME = checker
+NAME = push_swap
 
-NAME_BIS = push_swap
-
-SRCS =  
-
-SRCS_BIS =  
+SRCS = parsing.c \
+	  main.c	\
 
 OBJS = $(SRCS:.c=.o)
-
-OBJS_BIS = $(SRCS_BIS:.c=.o)
 
 CC  = gcc
 
@@ -39,18 +34,12 @@ $(NAME): $(OBJS)
 	@(gcc -o $(NAME) -I include $(SRCS) libft/libft.a $(CFLAGS))
 	@echo "$(GREEN)Compilation OK$(RESET)"
 
-
-$(NAME_BIS): $(OBJS_BIS)
-	@echo "$(LIGHTPURPLE)Compilation...$(RESET)"
-	@(gcc -o $(NAME_BIS) -I include $(SRCS_BIS) libft/libft.a $(CFLAGS))
-	@echo "$(GREEN)Compilation OK$(RESET)"
-
-all:  $(NAME) $(NAME_BIS)
+all:  $(NAME)
 
 clean:
 	@echo "$(RED)Deleting objects$(RESET)"
 	make clean -C libft
-	@($(RM)	$(OBJS) $(OBJS_BIS))
+	@($(RM)	$(OBJS))
 
 fclean:  clean
 	@echo "$(RED)Deleting executables$(RESET)"
@@ -60,6 +49,5 @@ re: fclean all
 
 san :
 	@(gcc -o $(NAME) -I include $(SRCS) libft/libft.a $(CFLAGS) $(SAN))
-	@(gcc -o $(NAME_BIS) -I include $(SRCS_BIS) libft/libft.a $(CFLAGS) $(SAN))
 
 .PHONY: all clean fclean re

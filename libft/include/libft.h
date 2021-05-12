@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/12 11:20:50 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/12 16:38:22 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 typedef struct	s_list
 {
-	void			*content;
-	struct s_list	*next;
+	void					*content;
+	struct s_list			*next;
 }				t_list;
 
 typedef struct	s_double_list
@@ -114,7 +114,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 */
 
 t_double_list	*ft_double_lstnew(void *content);
-void			ft_double_lstadd_front(t_double_list **alst, t_double_list *new);
+void			ft_double_lstadd_front(t_double_list **alst,
+		t_double_list *new);
 void			ft_double_lstadd_back(t_double_list **alst, t_double_list *new);
 void			ft_double_lstdelone(t_double_list **lst, int pos);
 void			case_middle_node(t_double_list **lst);
@@ -130,12 +131,12 @@ void			ft_double_print_list(t_double_list *lst);
  ** Get_next_line
 */
 
-int			get_next_line(int fd, char **line);
-int			return_value(int char_read, char **temp);
-int			error_case(int fd, char **line, char **temp, char **buf);
-char		*copy_to_join(char *temp, char *buf);
-char		*copy_to_get_temp(char *temp);
-char		*ft_trim(char *str, int c);
-char		*get_temp(char *str, int c);
+int				get_next_line(int fd, char **line);
+int				return_value(int char_read, char **temp);
+int				error_case(int fd, char **line, char **temp, char **buf);
+char			*copy_to_join(char *temp, char *buf);
+char			*copy_to_get_temp(char *temp);
+char			*ft_trim(char *str, int c);
+char			*get_temp(char *str, int c);
 
 #endif
