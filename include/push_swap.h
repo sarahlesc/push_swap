@@ -4,7 +4,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "../libft/include/libft.h"
 
 void	check_list(t_double_list *stack_a);
 void	check_duplicates_list(char *str, char **argv, int i);

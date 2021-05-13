@@ -29,7 +29,7 @@ endif
 
 $(NAME): $(OBJS)
 	@echo "$(LIGHTPURPLE)Compilation...$(RESET)"
-	if [ LIBFT_EXISTS=0 ]; then make -C libft; fi;
+	if [ LIBFT_EXISTS=0 ]; then make bonus -C libft; fi;
 	@echo "$(PURPLE)Libft compiled$(RESET)"
 	@(gcc -o $(NAME) -I include $(SRCS) libft/libft.a $(CFLAGS))
 	@echo "$(GREEN)Compilation OK$(RESET)"

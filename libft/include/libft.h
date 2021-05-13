@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/12 16:38:22 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/13 17:42:36 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_list
 
 typedef struct	s_double_list
 {
-	void					*content;
+	int					content;
 	struct s_double_list	*next;
 	struct s_double_list	*previous;
 }				t_double_list;
@@ -113,7 +113,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
  ** Double_linked_lists
 */
 
-t_double_list	*ft_double_lstnew(void *content);
+t_double_list	*ft_double_lstnew(int content);
 void			ft_double_lstadd_front(t_double_list **alst,
 		t_double_list *new);
 void			ft_double_lstadd_back(t_double_list **alst, t_double_list *new);
