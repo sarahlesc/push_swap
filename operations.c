@@ -1,56 +1,62 @@
 #include "include/push_swap.h"
 
-int		swap_list(t_list **stack)
+int		swap_list(t_double_list **stack)
 {
-	int i;
-	t_list *temp;
+	int			store;
+	t_double_list	*temp;
 
-	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
+	temp = *stack;
+	if (stack == NULL || ft_double_lstsize(*stack) <= 1)
 		return (-1);
-	i = 0;
-	while (temp != NULL)
-	{
-		temp->next = 
-		i++;
-		if (i == 2)
-			break;
-	}
+	store = temp->content;
+	temp->content = temp->next->content;
+	temp->next->content = store;
 	return (0);
 }
 
-void	swap_both(t_list **stack_a, t_liste **stak_b)
+/*void	swap_both(t_double_list **stack_a, t_double_list **stak_b)
 {
 	swap_list(stack_a);
 	swap_list(stack_b);
-}
+}*/
 
-int		push_list(t_list **first_stack, t_list **second_stack)
+int		push_list(t_double_list **first_stack,
+		t_double_list **second_stack)
 {
-	if (ft_lstsize(*second_stack) == 0)
-		return (-1);
-}
+	t_double_list *temp1;
+	t_double_list *temp2;
+	int			store;
 
-int		rotate_list(t_list **stack)
+	temp1 = *first_stack;
+	temp2 = *second_stack;
+	if (ft_double_lstsize(temp2) == 0)
+		return (-1);
+	store = temp2->content;
+	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
+	ft_double_lstdelone(second_stack, 0);
+	return (0);
+}
+/*
+int		rotate_list(t_double_list **stack)
 {
 	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
 		return (-1);
 }
 
-void	rotate_both(t_list **stack_a, t_list **stack_b)
+void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	rotate_list(stack_a);
 	rotate_list(stack_b);
 }
 
-void	reverse_rotate_list(t_list **stack)
+int	reverse_rotate_list(t_double_list **stack)
 {
 	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
 		return (-1);
 }
 
-
-void	reverse_rotate_both(t_list **stack_a, t_list **stack_b)
+void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	reverse_rotate_list(stack_a);
 	reverse_rotate_list(stack_b);
-}
+}*/

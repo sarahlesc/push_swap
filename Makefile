@@ -1,7 +1,8 @@
 NAME = push_swap
 
-SRCS = parsing.c \
+SRCS = parsing.c	\
 	  main.c	\
+	  operations.c	\
 
 OBJS = $(SRCS:.c=.o)
 

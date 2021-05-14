@@ -19,7 +19,11 @@ int		main(int argc, char **argv)
 		ft_double_lstadd_back(&stack_a, ft_double_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-	ft_double_print_list(stack_a);
 	check_list(stack_a);
+	ft_double_print_list(stack_a);
+	push_list(&stack_b, &stack_a);
+	ft_double_print_list(stack_a);
+	ft_double_print_list(stack_b);
+	//call_push_swap(&stack_a, &stack_b);
 	return (0);
 }
