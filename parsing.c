@@ -1,15 +1,15 @@
 #include "include/push_swap.h"
 
-/*void 	check_list(t_double_list *stack_a)
+void 	check_list(t_double_list *stack_a)
 {
 	while (stack_a != NULL)
 	{
-		if ((int)stack_a->content < -2147483647 ||
-				(int)stack_a->content > 2147483647)
+		if (stack_a->content < -2147483647 ||
+				stack_a->content > 2147483647)
 			print_error();
 		stack_a = stack_a->next;
 	}
-}*/
+}
 
 void 	check_duplicates_list(char *str, char **argv, int i)
 {
