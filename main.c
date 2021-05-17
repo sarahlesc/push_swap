@@ -21,9 +21,8 @@ int		main(int argc, char **argv)
 	}
 	check_list(stack_a);
 	ft_double_print_list(stack_a);
-	reverse_rotate_list(&stack_a);
-//	push_list(&stack_b, &stack_a);
+	call_push_swap(&stack_a, &stack_b);
 	ft_double_print_list(stack_a);
-	//call_push_swap(&stack_a, &stack_b);
+	stack_is_sorted(stack_a);
 	return (0);
 }
