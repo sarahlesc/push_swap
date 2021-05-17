@@ -44,38 +44,35 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 			temp = ft_double_lstfirst(*stack_b);
 			if (temp->content > temp->next->content)
 				swap_list(stack_b);
+			printf("\n");
+			ft_double_print_list(*stack_b);
+			printf("\n");
 		}
-		while (ft_double_lstsize(*stack_b) > 0)
+		while (ft_double_lstsize(*stack_b) >= 1)
 		{
-			printf("coucou\n");
-			printf("ft_double_lstsize(*stack_b) = %i\n", ft_double_lstsize(*stack_b));
+			printf("\n");
+			ft_double_print_list(*stack_b);
+			printf("\n");
 			push_list(stack_a, stack_b);
-			printf("hello\n");
 		}
 	}
 }
 
-void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+/*void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
 
-}
+}*/
 
 void	stack_is_sorted(t_double_list *stack)
 {
-	int		i;
-	t_double_list	*temp;
-
-	temp = stack;
-	i = 0;
-	while (i < ft_double_lstsize(stack))
+	while (stack->next != NULL)
 	{
-		if (temp->content >= temp->next->content)
+		if (stack->content >= stack->next->content)
 		{
 			printf("KO\n"); // faire une fonction pour bien sortir en free tout ?
 			exit (0);
 		}
-		temp = temp->next;
-		i++;
+		stack = stack->next;
 	}
 	printf("OK");
 }
@@ -113,7 +110,7 @@ void 	move_to_top(int nb, t_double_list **stack_a)
 	}
 }
 
-void 	smallest_number_list(t_double_list **stack_a)
+/*void 	smallest_number_list(t_double_list **stack_a)
 {
 	t_double_list *temp;
 	t_double_list *temp2;
@@ -122,4 +119,4 @@ void 	smallest_number_list(t_double_list **stack_a)
 	{
 		
 	}
-}
+}*/
