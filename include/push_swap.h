@@ -17,5 +17,10 @@ int		rotate_list(t_double_list **stack);
 void		rotate_both(t_double_list **stack_a, t_double_list **stack_b);
 int		reverse_rotate_list(t_double_list **stack);
 void		reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b);
+void 	type_sorting(t_double_list **stack_a, t_double_list **stack_b);
+void 	very_small_sorting(t_double_list **stack_a);
+void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b);
+void	stack_is_sorted(t_double_list **stack);
+
 
 #endif
