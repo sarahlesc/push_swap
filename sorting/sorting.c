@@ -44,52 +44,54 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 			temp = ft_double_lstfirst(*stack_b);
 			if (temp->content > temp->next->content)
 				swap_list(stack_b);
-			printf("\n");
-			ft_double_print_list(*stack_b);
-			printf("\n");
 		}
-		while (ft_double_lstsize(*stack_b) >= 1)
+		while (ft_double_lstsize(*stack_b) > 0)
 		{
-			printf("\n");
-			ft_double_print_list(*stack_b);
-			printf("\n");
+			printf("coucou\n");
+			printf("ft_double_lstsize(*stack_b) = %i\n", ft_double_lstsize(*stack_b));
 			push_list(stack_a, stack_b);
+			printf("hello\n");
 		}
 	}
 }
 
-/*void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
+	int		nb;
 
-}*/
+	nb = smallest_number_list(stack_a);
+	move_to_top(nb, stack_a);
+
+}
 
 void	stack_is_sorted(t_double_list *stack)
 {
-	while (stack->next != NULL)
+	int		i;
+	t_double_list	*temp;
+
+	temp = stack;
+	i = 0;
+	while (i < ft_double_lstsize(stack))
 	{
-		if (stack->content >= stack->next->content)
+		if (temp->content >= temp->next->content)
 		{
 			printf("KO\n"); // faire une fonction pour bien sortir en free tout ?
 			exit (0);
 		}
-		stack = stack->next;
+		temp = temp->next;
+		i++;
 	}
 	printf("OK");
 }
 
 void 	move_to_top(int nb, t_double_list **stack_a)
 {
-	int				i;
 	t_double_list	*temp;
 	t_double_list	*temp2;
 
-	i = 0;
 	temp = ft_double_lstfirst(*stack_a);
 	while (nb != temp->content)
-	{
-		i++;
 		temp = temp->next;
-	}
 	temp = ft_double_lstfirst(*stack_a);
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (nb < ft_double_lstsize(*stack_a) / 2)
@@ -97,7 +99,7 @@ void 	move_to_top(int nb, t_double_list **stack_a)
 		while (temp2->content != nb)
 		{
 			rotate_list(stack_a);
-			temp = temp->next;
+			temp = temp->previous;
 		}
 	}
 	else
@@ -110,13 +112,19 @@ void 	move_to_top(int nb, t_double_list **stack_a)
 	}
 }
 
-/*void 	smallest_number_list(t_double_list **stack_a)
+int 	smallest_number_list(t_double_list **stack_a)
 {
-	t_double_list *temp;
-	t_double_list *temp2;
+	t_double_list	*temp;
+	int				nb;
 	temp = ft_double_lstfirst(*stack_a);
 	while (temp->next != NULL)
 	{
-		
+		if (temp->content < temp->next->content)
+			nb = temp->content;
+		else
+			nb = temp->next->content;
+		temp = temp->next;
 	}
-}*/
+	printf("nb = %i\n", nb);
+	return (nb);
+}
