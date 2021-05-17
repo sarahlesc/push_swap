@@ -14,11 +14,11 @@ int		swap_list(t_double_list **stack)
 	return (0);
 }
 
-/*void	swap_both(t_double_list **stack_a, t_double_list **stak_b)
+void	swap_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	swap_list(stack_a);
 	swap_list(stack_b);
-}*/
+}
 
 int		push_list(t_double_list **first_stack,
 		t_double_list **second_stack)
@@ -36,27 +36,3 @@ int		push_list(t_double_list **first_stack,
 	ft_double_lstdelone(second_stack, 0);
 	return (0);
 }
-/*
-int		rotate_list(t_double_list **stack)
-{
-	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
-		return (-1);
-}
-
-void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
-{
-	rotate_list(stack_a);
-	rotate_list(stack_b);
-}
-
-int	reverse_rotate_list(t_double_list **stack)
-{
-	if (ft_lstsize(*stack) == 0 || ft_lstsize(*stack) == 1)
-		return (-1);
-}
-
-void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b)
-{
-	reverse_rotate_list(stack_a);
-	reverse_rotate_list(stack_b);
-}*/
