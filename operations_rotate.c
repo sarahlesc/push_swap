@@ -23,6 +23,7 @@ void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	rotate_list(stack_a);
 	rotate_list(stack_b);
+	printf("rr\n");
 }
 
 int		reverse_rotate_list(t_double_list **stack)
@@ -47,4 +48,6 @@ int		reverse_rotate_list(t_double_list **stack)
 void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	reverse_rotate_list(stack_a);
-	reverse_rotate_list(stack_b);}
+	reverse_rotate_list(stack_b);
+	printf("rrr\n");
+}

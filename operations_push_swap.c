@@ -18,6 +18,7 @@ void	swap_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	swap_list(stack_a);
 	swap_list(stack_b);
+	printf("ss\n");
 }
 
 int		push_list(t_double_list **first_stack,

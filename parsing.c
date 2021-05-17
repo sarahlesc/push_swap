@@ -36,7 +36,7 @@ void	nb_is_decim(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		while (ft_isdigit(str[i]) == 1)
+		while (ft_isdigit(str[i]) == 1 || str[i] == '-')
 			i++;
 		if (str[i] != ' ' && str[i] != '\0')
 			print_error();
