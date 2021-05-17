@@ -44,42 +44,37 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 			temp = ft_double_lstfirst(*stack_b);
 			if (temp->content > temp->next->content)
 				swap_list(stack_b);
+			printf("\n");
+			ft_double_print_list(*stack_b);
 		}
 		while (ft_double_lstsize(*stack_b) > 0)
 		{
-			printf("coucou\n");
-			printf("ft_double_lstsize(*stack_b) = %i\n", ft_double_lstsize(*stack_b));
+			printf("\n");
+			ft_double_print_list(*stack_b);
 			push_list(stack_a, stack_b);
-			printf("hello\n");
 		}
 	}
 }
 
-void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+/*void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
 	int		nb;
 
 	nb = smallest_number_list(stack_a);
 	move_to_top(nb, stack_a);
 
-}
+}*/
 
 void	stack_is_sorted(t_double_list *stack)
 {
-	int		i;
-	t_double_list	*temp;
-
-	temp = stack;
-	i = 0;
-	while (i < ft_double_lstsize(stack))
+	while (stack->next != NULL)
 	{
-		if (temp->content >= temp->next->content)
+		if (stack->content >= stack->next->content)
 		{
 			printf("KO\n"); // faire une fonction pour bien sortir en free tout ?
 			exit (0);
 		}
-		temp = temp->next;
-		i++;
+		stack = stack->next;
 	}
 	printf("OK");
 }
