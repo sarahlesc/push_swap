@@ -6,7 +6,7 @@
 /*   By: llescure <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:04:32 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/14 11:05:07 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:10:32 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_double_lstadd_back(t_double_list **alst, t_double_list *new)
 {
 	t_double_list *temp;
 
-	/*if (alst == NULL)
-		return ;*/
 	new->next = NULL;
 	temp = *alst;
 	if (temp == NULL)
@@ -30,4 +28,4 @@ void	ft_double_lstadd_back(t_double_list **alst, t_double_list *new)
 		temp = temp->next;
 	new->previous = temp;
 	temp->next = new;
-}	
+}

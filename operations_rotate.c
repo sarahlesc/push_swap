@@ -25,7 +25,7 @@ void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 	rotate_list(stack_b);
 }
 
-int	reverse_rotate_list(t_double_list **stack)
+int		reverse_rotate_list(t_double_list **stack)
 {
 	t_double_list *temp1;
 	t_double_list *temp2;
@@ -47,5 +47,4 @@ int	reverse_rotate_list(t_double_list **stack)
 void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 {
 	reverse_rotate_list(stack_a);
-	reverse_rotate_list(stack_b);
-}
+	reverse_rotate_list(stack_b);}

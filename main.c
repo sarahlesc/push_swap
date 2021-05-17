@@ -3,12 +3,12 @@
 int		main(int argc, char **argv)
 {
 	int				i;
-	t_double_list *stack_a;
-	t_double_list *stack_b;
+	t_double_list	*stack_a;
+	t_double_list	*stack_b;
 
 	if (argc == 1 || argc == 2)
 		return (0);
-	nb_is_decim(argv[1]); 
+	nb_is_decim(argv[1]);
 	stack_a = ft_double_lstnew(ft_atoi(argv[1]));
 	stack_b = NULL;
 	i = 2;
@@ -22,8 +22,8 @@ int		main(int argc, char **argv)
 	check_list(stack_a);
 	ft_double_print_list(stack_a);
 	call_push_swap(&stack_a, &stack_b);
+	printf("\n");
 	ft_double_print_list(stack_a);
-	ft_double_print_list(stack_b);
 	stack_is_sorted(stack_a);
 	return (0);
 }

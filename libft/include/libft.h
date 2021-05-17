@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/17 12:14:18 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:19:05 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct	s_list
 
 typedef struct	s_double_list
 {
-	int					content;
-	struct s_double_list	*next;
-	struct s_double_list	*previous;
+	int							content;
+	struct s_double_list		*next;
+	struct s_double_list		*previous;
 }				t_double_list;
 
 /*
