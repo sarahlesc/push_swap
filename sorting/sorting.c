@@ -26,6 +26,8 @@ void 	very_small_sorting(t_double_list **stack_a)
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (temp2->content > temp->content)
 		reverse_rotate_list(stack_a);
+	if (temp2->content > temp2->next->content)
+		swap_list(stack_a);
 }
 
 void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
@@ -40,22 +42,17 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 		while (ft_double_lstsize(*stack_a) != 3)
 		{
 			nb = smallest_number_list(stack_a);
-			move_to_top(nb, stack_a); // PB = ICI
-			printf("ici ?\n");
+			move_to_top(nb, stack_a);
 			push_list(stack_b, stack_a);
 		}
 		very_small_sorting(stack_a);
 		if (ft_double_lstsize(*stack_b) > 1)
 		{
 			temp = ft_double_lstfirst(*stack_b);
-			if (temp->content > temp->next->content)
-				swap_list(stack_b);
-			printf("\n");
 			ft_double_print_list(*stack_b);
 		}
 		while (ft_double_lstsize(*stack_b) > 0)
 		{
-			printf("\n");
 			ft_double_print_list(*stack_b);
 			push_list(stack_a, stack_b);
 		}
@@ -87,28 +84,33 @@ void	stack_is_sorted(t_double_list *stack)
 
 void 	move_to_top(int nb, t_double_list **stack_a)
 {
+	int				i;
 	t_double_list	*temp;
 	t_double_list	*temp2;
 
+	i = 0;
 	temp = ft_double_lstfirst(*stack_a);
 	while (nb != temp->content)
+	{
+		i++;
 		temp = temp->next;
+	}
 	temp = ft_double_lstfirst(*stack_a);
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (nb < ft_double_lstsize(*stack_a) / 2)
 	{
-		while (temp2->content != nb)
+		while (i > 0)
 		{
 			rotate_list(stack_a);
-			temp = temp->previous;
+			i--;
 		}
 	}
 	else
 	{
-		while (temp2->content != nb)
+		while (i < ft_double_lstsize(*stack_a))
 		{
 			reverse_rotate_list(stack_a);
-			temp = temp->next;
+			i++;
 		}
 	}
 }
@@ -118,14 +120,12 @@ int 	smallest_number_list(t_double_list **stack_a)
 	t_double_list	*temp;
 	int				nb;
 	temp = ft_double_lstfirst(*stack_a);
+	nb = temp->content;
 	while (temp->next != NULL)
 	{
-		if (temp->content < temp->next->content)
-			nb = temp->content;
-		else
+		if (nb > temp->next->content)
 			nb = temp->next->content;
 		temp = temp->next;
 	}
-	printf("nb = %i\n", nb);
 	return (nb);
 }
