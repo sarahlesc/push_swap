@@ -23,6 +23,7 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b);
 void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b);
 void 	large_sorting(t_double_list **stack_a, t_double_list **stack_b);
 void	stack_is_sorted(t_double_list *stack);
-
+void 	move_to_top(int nb, t_double_list **stack_a);
+int 	smallest_number_list(t_double_list **stack_a);
 
 #endif

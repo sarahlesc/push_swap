@@ -30,14 +30,20 @@ void 	very_small_sorting(t_double_list **stack_a)
 
 void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
-	t_double_list *temp;
+	t_double_list	*temp;
+	int				nb;
 
 	if (ft_double_lstsize(*stack_a) < 4)
 		very_small_sorting(stack_a);
 	if (ft_double_lstsize(*stack_a) > 3 && ft_double_lstsize(*stack_a) < 6)
 	{
 		while (ft_double_lstsize(*stack_a) != 3)
+		{
+			nb = smallest_number_list(stack_a);
+			move_to_top(nb, stack_a); // PB = ICI
+			printf("ici ?\n");
 			push_list(stack_b, stack_a);
+		}
 		very_small_sorting(stack_a);
 		if (ft_double_lstsize(*stack_b) > 1)
 		{
@@ -55,7 +61,7 @@ void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 	}
 }
 
-void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+/*void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
 	int		nb;
 
@@ -63,7 +69,7 @@ void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
 	move_to_top(nb, stack_a);
 
 }
-
+*/
 void	stack_is_sorted(t_double_list *stack)
 {
 	int		i;
