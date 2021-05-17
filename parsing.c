@@ -1,6 +1,6 @@
 #include "include/push_swap.h"
 
-void 	check_list(t_double_list *stack_a)
+void	check_list(t_double_list *stack_a)
 {
 	while (stack_a != NULL)
 	{
@@ -11,7 +11,7 @@ void 	check_list(t_double_list *stack_a)
 	}
 }
 
-void 	check_duplicates_list(char *str, char **argv, int i)
+void	check_duplicates_list(char *str, char **argv, int i)
 {
 	int j;
 	int value;
@@ -29,7 +29,7 @@ void 	check_duplicates_list(char *str, char **argv, int i)
 	}
 }
 
-int		nb_is_decim(char *str)
+void	nb_is_decim(char *str)
 {
 	int i;
 
@@ -41,11 +41,10 @@ int		nb_is_decim(char *str)
 		if (str[i] != ' ' && str[i] != '\0')
 			print_error();
 	}
-	return (1);
 }
 
-void 	print_error()
+void	print_error(void)
 {
 	printf("Error\n");
-	exit (0);
+	exit(0);
 }

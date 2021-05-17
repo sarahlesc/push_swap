@@ -2,7 +2,7 @@
 
 int		swap_list(t_double_list **stack)
 {
-	int			store;
+	int				store;
 	t_double_list	*temp;
 
 	temp = *stack;
@@ -23,9 +23,9 @@ void	swap_both(t_double_list **stack_a, t_double_list **stack_b)
 int		push_list(t_double_list **first_stack,
 		t_double_list **second_stack)
 {
-	t_double_list *temp1;
-	t_double_list *temp2;
-	int			store;
+	t_double_list	*temp1;
+	t_double_list	*temp2;
+	int				store;
 
 	temp1 = *first_stack;
 	temp2 = *second_stack;
