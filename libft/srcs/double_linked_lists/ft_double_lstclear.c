@@ -6,29 +6,23 @@
 /*   By: llescure <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 16:35:01 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/12 11:02:36 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:14:59 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_double_lstclear(t_double_list **lst, t_double_list *del)
+void	ft_double_lstclear(t_double_list **lst, int pos)
 {
 	t_double_list	*temp;
 
-	if (*lst == NULL || del == NULL)
+	if (lst == NULL)
 		return ;
-	while ((*lst)->previous != NULL)
-		*lst = (*lst)->previous;
-	while ((*lst)->next != NULL)
+	while (*lst != NULL)
 	{
-		if (*lst == del)
-			while (del->next != NULL)
-			{
-				temp = (*lst)->next;
-				free(del);
-				free(*lst);
-			}
-		*lst = (*lst)->next;
+		temp = (*lst)->next;
+		ft_double_lstdelone(lst, pos);
+		*lst = temp;
+		pos++;
 	}
 }

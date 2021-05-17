@@ -33,6 +33,9 @@ int		push_list(t_double_list **first_stack,
 		return (-1);
 	store = temp2->content;
 	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
-	ft_double_lstdelone(second_stack, 0);
+	if (ft_double_lstsize(temp2) != 1) 
+		ft_double_lstdelone(second_stack, 0);
+	else
+		ft_double_lstclear(second_stack, 0);
 	return (0);
 }

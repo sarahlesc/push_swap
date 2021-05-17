@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/13 17:42:36 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:14:18 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void			ft_double_lstdelone(t_double_list **lst, int pos);
 void			case_middle_node(t_double_list **lst);
 void			case_first_node(t_double_list **lst);
 void			case_last_node(t_double_list **lst);
-void			ft_double_lstclear(t_double_list **lst, t_double_list *del);
+void			ft_double_lstclear(t_double_list **lst, int pos);
 t_double_list	*ft_double_lstfirst(t_double_list *lst);
 t_double_list	*ft_double_lstlast(t_double_list *lst);
 int				ft_double_lstsize(t_double_list *lst);
