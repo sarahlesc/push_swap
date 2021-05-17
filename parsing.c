@@ -14,12 +14,17 @@ void 	check_list(t_double_list *stack_a)
 void 	check_duplicates_list(char *str, char **argv, int i)
 {
 	int j;
+	int value;
 
 	j = 1;
 	while (j < i)
 	{
-		if (str == argv[j])
-			print_error();
+		if (ft_strlen(str) == ft_strlen(argv[j]))
+		{
+			value = ft_strncmp(str, argv[j], ft_strlen(str));
+			if (value == 0)
+				print_error();
+		}
 		j++;
 	}
 }
