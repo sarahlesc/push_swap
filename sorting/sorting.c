@@ -14,38 +14,50 @@ void 	call_push_swap(t_double_list **stack_a, t_double_list **stack_b)
 
 void 	very_small_sorting(t_double_list **stack_a)
 {
-	int			i;
 	t_double_list	*temp;
 	t_double_list	*temp2;
 
-	i = 0;
-	if (ft_double_lstsize(*stack_a) < 4)
-	{
-		temp = ft_double_lstlast(*stack_a);
-		if (temp->content < temp->previous->content)
-			reverse_rotate_list(stack_a);
-		temp = ft_double_lstfirst(*stack_a);
-		if (temp->content > temp->next->content)
-			swap_list(stack_a);
-		temp2 = ft_double_lstlast(*stack_a);
-		if (temp->content > temp2->content) // ça marche peut etre pas ça mais je veux aller à la fin de la liste 
-			reverse_rotate_list(stack_a);
-	}
+	temp = ft_double_lstfirst(*stack_a);
+	if (temp->content > temp->next->content)
+		swap_list(stack_a);
+	temp = ft_double_lstlast(*stack_a);
+	if (temp->content < temp->previous->content)
+		reverse_rotate_list(stack_a);
+	temp2 = ft_double_lstfirst(*stack_a);
+	if (temp2->content > temp->content)
+		reverse_rotate_list(stack_a);
 }
 
 void 	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
+	t_double_list *temp;
+
 	if (ft_double_lstsize(*stack_a) < 4)
 		very_small_sorting(stack_a);
 	if (ft_double_lstsize(*stack_a) > 3 && ft_double_lstsize(*stack_a) < 6)
 	{
 		while (ft_double_lstsize(*stack_a) != 3)
-			push_list(stack_a, stack_b);
-		very_small_sorting(stack_a);
-		very_small_sorting(stack_b);
-		while (ft_double_lstsize(*stack_b) != 0)
 			push_list(stack_b, stack_a);
+		very_small_sorting(stack_a);
+		if (ft_double_lstsize(*stack_b) > 1)
+		{
+			temp = ft_double_lstfirst(*stack_b);
+			if (temp->content > temp->next->content)
+				swap_list(stack_b);
+		}
+		while (ft_double_lstsize(*stack_b) > 0)
+		{
+			printf("coucou\n");
+			printf("ft_double_lstsize(*stack_b) = %i\n", ft_double_lstsize(*stack_b));
+			push_list(stack_a, stack_b);
+			printf("hello\n");
+		}
 	}
+}
+
+void 	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+{
+
 }
 
 void	stack_is_sorted(t_double_list *stack)
@@ -66,4 +78,48 @@ void	stack_is_sorted(t_double_list *stack)
 		i++;
 	}
 	printf("OK");
+}
+
+void 	move_to_top(int nb, t_double_list **stack_a)
+{
+	int				i;
+	t_double_list	*temp;
+	t_double_list	*temp2;
+
+	i = 0;
+	temp = ft_double_lstfirst(*stack_a);
+	while (nb != temp->content)
+	{
+		i++;
+		temp = temp->next;
+	}
+	temp = ft_double_lstfirst(*stack_a);
+	temp2 = ft_double_lstfirst(*stack_a);
+	if (nb < ft_double_lstsize(*stack_a) / 2)
+	{
+		while (temp2->content != nb)
+		{
+			rotate_list(stack_a);
+			temp = temp->next;
+		}
+	}
+	else
+	{
+		while (temp2->content != nb)
+		{
+			reverse_rotate_list(stack_a);
+			temp = temp->next;
+		}
+	}
+}
+
+void 	smallest_number_list(t_double_list **stack_a)
+{
+	t_double_list *temp;
+	t_double_list *temp2;
+	temp = ft_double_lstfirst(*stack_a);
+	while (temp->next != NULL)
+	{
+		
+	}
 }
