@@ -6,7 +6,7 @@
 /*   By: llescure <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:16:45 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/14 18:32:59 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/17 15:08:32 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	case_first_node(t_double_list **lst)
 	t_double_list	*temp;
 
 	temp_to_free = *lst;
+	if (temp_to_free->next == NULL)
+		free(temp_to_free);
 	*lst = temp_to_free->next;
 	temp = *lst;
 	temp->previous = NULL;
