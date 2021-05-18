@@ -12,7 +12,7 @@
 
 #include "../../include/libft.h"
 
-int		return_value(int char_read, char **temp)
+int	return_value(int char_read, char **temp)
 {
 	if (char_read < 0)
 		return (-1);
@@ -23,7 +23,7 @@ int		return_value(int char_read, char **temp)
 	return (0);
 }
 
-int		error_case(int fd, char **line, char **temp, char **buf)
+int	error_case(int fd, char **line, char **temp, char **buf)
 {
 	if (fd < 0 || BUFFER_SIZE <= 0 || line == NULL || read(fd, *temp, 0) < 0)
 		return (-1);
@@ -60,7 +60,7 @@ char	*copy_to_get_temp(char *temp)
 	return (temp);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char				*buf;
 	static char			*temp = NULL;
@@ -71,7 +71,8 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	if (!(ft_strchr(temp, '\n')))
 	{
-		while ((char_read = read(fd, buf, BUFFER_SIZE)) > 0)
+		char_read = read(fd, buf, BUFFER_SIZE);
+		while (char_read > 0)
 		{
 			buf[char_read] = '\0';
 			temp = copy_to_join(temp, buf);

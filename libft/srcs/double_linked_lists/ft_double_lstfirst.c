@@ -14,7 +14,7 @@
 
 t_double_list	*ft_double_lstfirst(t_double_list *lst)
 {
-	t_double_list *new;
+	t_double_list	*new;
 
 	if (lst == NULL)
 		return (NULL);

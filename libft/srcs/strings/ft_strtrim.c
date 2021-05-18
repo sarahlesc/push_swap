@@ -14,8 +14,8 @@
 
 unsigned long	ft_trim_beg(char const *s1, char const *set)
 {
-	unsigned long i;
-	unsigned long j;
+	unsigned long	i;
+	unsigned long	j;
 
 	i = 0;
 	j = 0;
@@ -35,8 +35,8 @@ unsigned long	ft_trim_beg(char const *s1, char const *set)
 
 unsigned long	ft_trim_last(char const *s1, char const *set)
 {
-	unsigned long i;
-	unsigned long j;
+	unsigned long	i;
+	unsigned long	j;
 
 	i = ft_strlen(s1) - 1;
 	j = 0;
@@ -54,7 +54,7 @@ unsigned long	ft_trim_last(char const *s1, char const *set)
 	return (ft_strlen(s1) - i - 1);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char						*rslt;
 	unsigned long				i;

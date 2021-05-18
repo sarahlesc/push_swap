@@ -14,7 +14,7 @@
 
 void	ft_double_print_list(t_double_list *lst)
 {
-	int compt;
+	int	compt;
 
 	compt = 0;
 	if (lst == NULL)

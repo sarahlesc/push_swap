@@ -12,9 +12,9 @@
 
 #include "../../include/libft.h"
 
-int		ft_find_size(long n)
+int	ft_find_size(long n)
 {
-	int compt;
+	int	compt;
 
 	compt = 0;
 	if (n <= 0)

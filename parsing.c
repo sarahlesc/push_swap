@@ -4,8 +4,8 @@ void	check_list(t_double_list *stack_a)
 {
 	while (stack_a != NULL)
 	{
-		if (stack_a->content < -2147483647 ||
-				stack_a->content > 2147483647)
+		if (stack_a->content < -2147483647
+			|| stack_a->content > 2147483647)
 			print_error();
 		stack_a = stack_a->next;
 	}
@@ -13,8 +13,8 @@ void	check_list(t_double_list *stack_a)
 
 void	check_duplicates_list(char *str, char **argv, int i)
 {
-	int j;
-	int value;
+	int	j;
+	int	value;
 
 	j = 1;
 	while (j < i)
@@ -31,7 +31,7 @@ void	check_duplicates_list(char *str, char **argv, int i)
 
 void	nb_is_decim(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

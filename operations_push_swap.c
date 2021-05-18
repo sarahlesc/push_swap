@@ -1,6 +1,6 @@
 #include "include/push_swap.h"
 
-int		swap_list(t_double_list **stack)
+int	swap_list(t_double_list **stack)
 {
 	int				store;
 	t_double_list	*temp;
@@ -21,7 +21,7 @@ void	swap_both(t_double_list **stack_a, t_double_list **stack_b)
 	printf("ss\n");
 }
 
-int		push_list(t_double_list **first_stack,
+int	push_list(t_double_list **first_stack,
 		t_double_list **second_stack)
 {
 	t_double_list	*temp1;

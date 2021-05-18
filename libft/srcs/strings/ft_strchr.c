@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	if (c == '\0' && str[0] == '\0')

@@ -12,10 +12,10 @@
 
 #include "../../include/libft.h"
 
-int		ft_is_white_space(char c)
+int	ft_is_white_space(char c)
 {
-	if (c == ' ' || c == '\t' || c == '\n' ||
-		c == '\v' || c == '\f' || c == '\r')
+	if (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r')
 		return (1);
 	return (0);
 }
@@ -31,15 +31,15 @@ long	ft_check_sign(const char *str)
 	{
 		if (str[i] == '-')
 		{
-			if (str[i + 1] == '+' || sign == -1 ||
-				ft_is_white_space(str[i + 1]) == 1)
+			if (str[i + 1] == '+' || sign == -1
+				|| ft_is_white_space(str[i + 1]) == 1)
 				return (0);
 			sign = sign * -1;
 		}
 		if (str[i] == '+')
 		{
-			if (sign == -1 || str[i + 1] == '-' || str[i + 1] == '+' ||
-				ft_is_white_space(str[i + 1]) == 1)
+			if (sign == -1 || str[i + 1] == '-' || str[i + 1] == '+'
+				|| ft_is_white_space(str[i + 1]) == 1)
 				return (0);
 		}
 		i++;
@@ -47,7 +47,7 @@ long	ft_check_sign(const char *str)
 	return (sign);
 }
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int						i;
 	long					rslt;
