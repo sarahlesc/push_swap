@@ -6,6 +6,7 @@ SRCS = parsing.c					\
 	  operations_rotate.c			\
 	  sorting/sorting.c				\
 	  sorting/medium_sorting.c		\
+	  sorting/big_sorting.c			\
 
 OBJS = $(SRCS:.c=.o)
 
