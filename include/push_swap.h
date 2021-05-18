@@ -26,5 +26,8 @@ void	stack_is_sorted(t_double_list *stack);
 void	move_to_top(int nb, t_double_list **stack);
 int		smallest_number_list(t_double_list **stack);
 int		biggest_number_list(t_double_list **stack);
+int		find_median(t_double_list **stack);
+void	ft_quick_sort(t_double_list **stack, int first, int last);
+
 
 #endif

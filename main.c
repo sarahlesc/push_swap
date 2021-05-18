@@ -21,7 +21,8 @@ int		main(int argc, char **argv)
 	}
 	check_list(stack_a);
 	ft_double_print_list(stack_a);
-	call_push_swap(&stack_a, &stack_b);
+	ft_quick_sort(&stack_a, 1, 21);
+//	call_push_swap(&stack_a, &stack_b);
 	printf("\n");
 	ft_double_print_list(stack_a);
 	stack_is_sorted(stack_a);
