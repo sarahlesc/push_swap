@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 23:15:29 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:38:06 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:40:32 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ char	*ft_itoa(int n)
 	int			j;
 
 	store = n;
-	if (!(rslt = malloc(sizeof(char) * ft_find_size(n) + 1)))
+	rslt = malloc(sizeof(char) * ft_find_size(n) + 1);
+	if (rslt == NULL)
 		return (NULL);
 	i = ft_find_size(n) - 1;
 	j = 0;

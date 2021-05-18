@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 23:37:02 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:25:58 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:47:41 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	unsigned long				cara;
 
 	cara = ft_strlen(s1) - ft_trim_beg(s1, set) - ft_trim_last(s1, set);
-	if (!(rslt = malloc(sizeof(char) * cara + 1)))
+	rslt = malloc(sizeof(char) * cara + 1);
+	if (rslt == NULL)
 		return (NULL);
 	i = ft_trim_beg(s1, set);
 	j = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 16:09:43 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:30:02 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:41:56 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char		*ft_trim(char *str, int c)
 	size = 0;
 	while (str[size] != '\0' && str[size] != c)
 		size++;
-	if (!(new_str = malloc(sizeof(char) * size + 1)))
+	new_str = malloc(sizeof(char) * size + 1);
+	if (new_str == NULL)
 		return (NULL);
 	i = 0;
 	while (i < size)
@@ -41,7 +42,8 @@ char		*get_temp(char *str, int c)
 
 	i = 0;
 	j = 0;
-	if (!(temp = malloc(sizeof(char) * ft_strlen(str) + 1)))
+	temp = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (temp == NULL)
 		return (NULL);
 	while (str[i] != '\0' && str[i] != c)
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:49:03 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:30:10 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:42:44 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int		error_case(int fd, char **line, char **temp, char **buf)
 		return (-1);
 	if (*temp == NULL)
 	{
-		if (!(*temp = malloc(sizeof(char))))
+		*temp = malloc(sizeof(char));
+		if (*temp == NULL)
 			return (-1);
 		*temp[0] = '\0';
 	}
-	if (!(*buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
+	*buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (*buf == NULL)
 		return (-1);
 	return (0);
 }

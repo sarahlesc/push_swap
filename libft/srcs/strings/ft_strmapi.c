@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 23:35:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:25:16 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:47:08 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	unsigned int				i;
 	char						*final;
 
-	if (!(final = malloc(sizeof(char) * ft_strlen(s) + 1)))
+	final = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (final == NULL)
 		return (NULL);
 	ft_strlcpy(final, s, ft_strlen(s));
 	i = 0;

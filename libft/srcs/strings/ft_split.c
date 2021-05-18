@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 23:20:35 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:24:17 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/18 12:12:32 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,15 @@ char				**ft_split(char const *s, char c)
 	unsigned long				i;
 	unsigned long				pos;
 
-	i = 0;
+	i = -1;
 	pos = 0;
-	if (!(tab = malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
+	tab = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (tab == NULL)
 		return (NULL);
-	while (i < ft_count_words(s, c))
+	while (++i < ft_count_words(s, c))
 	{
-		if (!(tab[i] = (char *)malloc(sizeof(char) * (ft_cara(s, c, pos) + 1))))
+		tab[i] = (char *)malloc(sizeof(char) * (ft_cara(s, c, pos) + 1));
+		if (tab[i] == NULL)
 		{
 			ft_free(tab, i);
 			return (NULL);
@@ -79,7 +81,6 @@ char				**ft_split(char const *s, char c)
 		ft_memcpy(tab[i], s + pos, ft_cara(s, c, pos));
 		tab[i][ft_cara(s, c, pos)] = '\0';
 		pos += ft_cara(s, c, pos);
-		i++;
 	}
 	tab[i] = NULL;
 	return (tab);
