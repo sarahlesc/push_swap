@@ -9,7 +9,7 @@
 void	check_list(t_double_list *stack_a);
 void	check_duplicates_list(char *str, char **argv, int i);
 void	nb_is_decim(char *str);
-void	print_error();
+void	print_error(void);
 int		swap_list(t_double_list **stack);
 void	swap_both(t_double_list **stack_a, t_double_list **stack_b);
 int		push_list(t_double_list **first_stack, t_double_list **second_stack);

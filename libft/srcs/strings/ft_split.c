@@ -12,7 +12,7 @@
 
 #include "../../include/libft.h"
 
-void				ft_free(char **s, unsigned long pos)
+void	ft_free(char **s, unsigned long pos)
 {
 	while (pos > 0)
 	{
@@ -22,10 +22,10 @@ void				ft_free(char **s, unsigned long pos)
 	free(s);
 }
 
-unsigned long		ft_count_words(char const *s, char sep)
+unsigned long	ft_count_words(char const *s, char sep)
 {
-	unsigned long i;
-	unsigned long compt;
+	unsigned long	i;
+	unsigned long	compt;
 
 	i = 0;
 	compt = 0;
@@ -40,10 +40,10 @@ unsigned long		ft_count_words(char const *s, char sep)
 	return (compt);
 }
 
-unsigned long		ft_cara(char const *s, char sep, int pos)
+unsigned long	ft_cara(char const *s, char sep, int pos)
 {
-	unsigned long i;
-	unsigned long compt;
+	unsigned long	i;
+	unsigned long	compt;
 
 	i = pos;
 	compt = 0;
@@ -57,7 +57,7 @@ unsigned long		ft_cara(char const *s, char sep, int pos)
 	return (compt);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char						**tab;
 	unsigned long				i;

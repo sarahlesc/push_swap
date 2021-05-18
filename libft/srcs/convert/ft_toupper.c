@@ -12,9 +12,9 @@
 
 #include "../../include/libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	char final;
+	char	final;
 
 	if (c >= 'a' && c <= 'z')
 	{

@@ -14,7 +14,7 @@
 
 void	ft_double_lstadd_back(t_double_list **alst, t_double_list *new)
 {
-	t_double_list *temp;
+	t_double_list	*temp;
 
 	new->next = NULL;
 	temp = *alst;

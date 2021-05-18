@@ -45,7 +45,7 @@ void	move_to_top(int nb, t_double_list **stack_a)
 	}
 }
 
-int		smallest_number_list(t_double_list **stack_a)
+int	smallest_number_list(t_double_list **stack_a)
 {
 	t_double_list	*temp;
 	int				nb;
@@ -61,7 +61,7 @@ int		smallest_number_list(t_double_list **stack_a)
 	return (nb);
 }
 
-int		biggest_number_list(t_double_list **stack_a)
+int	biggest_number_list(t_double_list **stack_a)
 {
 	t_double_list	*temp;
 	int				nb;

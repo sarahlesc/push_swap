@@ -1,9 +1,9 @@
 #include "include/push_swap.h"
 
-int		rotate_list(t_double_list **stack)
+int	rotate_list(t_double_list **stack)
 {
-	t_double_list *temp1;
-	t_double_list *temp2;
+	t_double_list	*temp1;
+	t_double_list	*temp2;
 
 	if (ft_double_lstsize(*stack) == 0 || ft_double_lstsize(*stack) == 1)
 		return (-1);
@@ -26,10 +26,10 @@ void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
 	printf("rr\n");
 }
 
-int		reverse_rotate_list(t_double_list **stack)
+int	reverse_rotate_list(t_double_list **stack)
 {
-	t_double_list *temp1;
-	t_double_list *temp2;
+	t_double_list	*temp1;
+	t_double_list	*temp2;
 
 	if (ft_double_lstsize(*stack) == 0 || ft_double_lstsize(*stack) == 1)
 		return (-1);

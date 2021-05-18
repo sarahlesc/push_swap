@@ -21,13 +21,13 @@
 #  define BUFFER_SIZE 10
 # endif
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void					*content;
 	struct s_list			*next;
 }				t_list;
 
-typedef struct	s_double_list
+typedef struct s_double_list
 {
 	int							content;
 	struct s_double_list		*next;
@@ -50,7 +50,7 @@ size_t			ft_strlcpy(char *dest, const char *src, size_t destsize);
 size_t			ft_strlen(const char *str);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_strnstr(const char *haystack, const char *needle,
-		size_t len);
+					size_t len);
 char			*ft_strrchr(const char *str, int c);
 
 /*
@@ -107,7 +107,7 @@ void			ft_lstdelone(t_list *lst, void(*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-		void (*del)(void *));
+					void (*del)(void *));
 
 /*
  ** Double_linked_lists
@@ -115,7 +115,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 t_double_list	*ft_double_lstnew(int content);
 void			ft_double_lstadd_front(t_double_list **alst,
-		t_double_list *new);
+					t_double_list *new);
 void			ft_double_lstadd_back(t_double_list **alst, t_double_list *new);
 void			ft_double_lstdelone(t_double_list **lst, int pos);
 void			case_middle_node(t_double_list **lst);

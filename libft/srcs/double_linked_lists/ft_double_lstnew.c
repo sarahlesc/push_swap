@@ -14,7 +14,7 @@
 
 t_double_list	*ft_double_lstnew(int content)
 {
-	t_double_list *new_list;
+	t_double_list	*new_list;
 
 	new_list = malloc(sizeof(*new_list));
 	if (new_list == NULL)

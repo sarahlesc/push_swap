@@ -12,7 +12,7 @@
 
 #include "../../include/libft.h"
 
-char		*ft_trim(char *str, int c)
+char	*ft_trim(char *str, int c)
 {
 	char					*new_str;
 	unsigned int			i;
@@ -34,7 +34,7 @@ char		*ft_trim(char *str, int c)
 	return (new_str);
 }
 
-char		*get_temp(char *str, int c)
+char	*get_temp(char *str, int c)
 {
 	unsigned int	i;
 	unsigned int	j;
