@@ -4,20 +4,18 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b)
 {
 	t_double_list	*temp;
 	int				median;
-	int				i;
 
 	temp = *stack_a;
-	i = 0;
 	median = find_median(temp);
-	while (i < ft_double_lstsize(*stack_a))
+	while (temp->next != NULL)
 	{
 		if (temp->content < median)
+		{
+			move_to_top(temp->content, temp);
 			push_list(stack_b, stack_a);
-		else
-			rotate_list(stack_a);
-		i++;
+		}
+		temp = temp->next;
 	}
-
 }
 
 int		find_median(t_double_list *stack)
