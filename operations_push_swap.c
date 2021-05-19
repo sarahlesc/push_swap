@@ -1,6 +1,6 @@
 #include "include/push_swap.h"
 
-int	swap_list(t_double_list **stack)
+int	swap_list(t_double_list **stack, t_compt *compt)
 {
 	int				store;
 	t_double_list	*temp;
@@ -11,18 +11,21 @@ int	swap_list(t_double_list **stack)
 	store = temp->content;
 	temp->content = temp->next->content;
 	temp->next->content = store;
+	compt->value++;
 	return (0);
 }
 
-void	swap_both(t_double_list **stack_a, t_double_list **stack_b)
+void	swap_both(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
-	swap_list(stack_a);
-	swap_list(stack_b);
+	swap_list(stack_a, compt);
+	swap_list(stack_b, compt);
+	compt->value--;
 	printf("ss\n");
 }
 
 int	push_list(t_double_list **first_stack,
-		t_double_list **second_stack)
+		t_double_list **second_stack, t_compt *compt)
 {
 	t_double_list	*temp1;
 	t_double_list	*temp2;
@@ -33,5 +36,6 @@ int	push_list(t_double_list **first_stack,
 	store = temp2->content;
 	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
 	ft_double_lstdelone(second_stack, 0);
+	compt->value++;
 	return (0);
 }

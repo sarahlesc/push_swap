@@ -5,7 +5,9 @@ int	main(int argc, char **argv)
 	int				i;
 	t_double_list	*stack_a;
 	t_double_list	*stack_b;
+	t_compt			compt;
 
+	compt.value = 0;
 	if (argc == 1 || argc == 2)
 		return (0);
 	nb_is_decim(argv[1]);
@@ -20,10 +22,15 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	check_list(stack_a);
+	printf("stack_a = \n");
 	ft_double_print_list(stack_a);
-	call_push_swap(&stack_a, &stack_b);
+	call_push_swap(&stack_a, &stack_b, &compt);
 	printf("\n");
+	printf("stack_a = \n");
 	ft_double_print_list(stack_a);
+	printf("stack_b = \n");
+	ft_double_print_list(stack_b);
+	printf("compteur = %d\n", compt.value);
 	stack_is_sorted(stack_a);
 	return (0);
 }

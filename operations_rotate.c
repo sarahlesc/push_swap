@@ -1,6 +1,6 @@
 #include "include/push_swap.h"
 
-int	rotate_list(t_double_list **stack)
+int	rotate_list(t_double_list **stack, t_compt *compt)
 {
 	t_double_list	*temp1;
 	t_double_list	*temp2;
@@ -16,17 +16,20 @@ int	rotate_list(t_double_list **stack)
 		temp1 = temp1->previous;
 	}
 	*stack = temp2;
+	compt->value++;
 	return (0);
 }
 
-void	rotate_both(t_double_list **stack_a, t_double_list **stack_b)
+void	rotate_both(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
-	rotate_list(stack_a);
-	rotate_list(stack_b);
+	rotate_list(stack_a, compt);
+	rotate_list(stack_b, compt);
+	compt->value--;
 	printf("rr\n");
 }
 
-int	reverse_rotate_list(t_double_list **stack)
+int	reverse_rotate_list(t_double_list **stack, t_compt *compt)
 {
 	t_double_list	*temp1;
 	t_double_list	*temp2;
@@ -42,12 +45,15 @@ int	reverse_rotate_list(t_double_list **stack)
 		temp1 = temp1->next;
 	}
 	*stack = temp2;
+	compt->value++;
 	return (0);
 }
 
-void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b)
+void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
-	reverse_rotate_list(stack_a);
-	reverse_rotate_list(stack_b);
+	reverse_rotate_list(stack_a, compt);
+	reverse_rotate_list(stack_b, compt);
 	printf("rrr\n");
+	compt->value--;
 }

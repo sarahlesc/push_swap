@@ -1,16 +1,17 @@
 #include "../include/push_swap.h"
 
-void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b)
+void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
 	int		nb;
 
 	(void)stack_b;
 	nb = smallest_number_list(stack_a);
-	move_to_top(nb, stack_a);
+	move_to_top(nb, stack_a, compt);
 	nb = biggest_number_list(stack_a);
 }
 
-void	move_to_top(int nb, t_double_list **stack_a)
+void	move_to_top(int nb, t_double_list **stack_a, t_compt *compt)
 {
 	int				i;
 	t_double_list	*temp;
@@ -29,7 +30,7 @@ void	move_to_top(int nb, t_double_list **stack_a)
 	{
 		while (i > 0)
 		{
-			rotate_list(stack_a);
+			rotate_list(stack_a, compt);
 			printf("ra\n");
 			i--;
 		}
@@ -38,7 +39,7 @@ void	move_to_top(int nb, t_double_list **stack_a)
 	{
 		while (i < ft_double_lstsize(*stack_a))
 		{
-			reverse_rotate_list(stack_a);
+			reverse_rotate_list(stack_a, compt);
 			printf("rra\n");
 			i++;
 		}

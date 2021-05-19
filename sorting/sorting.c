@@ -1,20 +1,21 @@
 #include "../include/push_swap.h"
 
-void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b)
+void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
 	if (ft_double_lstsize(*stack_a) <= 10)
-		small_sorting(stack_a, stack_b);
+		small_sorting(stack_a, stack_b, compt);
 	else if (ft_double_lstsize(*stack_a) > 10
 		&& ft_double_lstsize(*stack_a) <= 100)
-		medium_sorting(stack_a, stack_b);
+		large_sorting(stack_a, stack_b, compt);
 	else if (ft_double_lstsize(*stack_a) > 100 &&
 	ft_double_lstsize(*stack_a) <= 500)
-		large_sorting(stack_a, stack_b);
+		large_sorting(stack_a, stack_b, compt);
 	else
 		print_error();
 }
 
-void	very_small_sorting(t_double_list **stack_a)
+void	very_small_sorting(t_double_list **stack_a, t_compt *compt)
 {
 	t_double_list	*temp;
 	t_double_list	*temp2;
@@ -22,50 +23,51 @@ void	very_small_sorting(t_double_list **stack_a)
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (temp2->content > temp2->next->content)
 	{
-		swap_list(stack_a);
+		swap_list(stack_a, compt);
 		printf("sa\n");
 	}
 	temp = ft_double_lstlast(*stack_a);
 	if (temp->content < temp->previous->content)
 	{
-		reverse_rotate_list(stack_a);
+		reverse_rotate_list(stack_a, compt);
 		printf("rra\n");
 	}
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (temp2->content > temp->content)
 	{
-		reverse_rotate_list(stack_a);
+		reverse_rotate_list(stack_a, compt);
 		printf("rra\n");
 	}
 	if (temp2->content > temp2->next->content)
 	{
-		swap_list(stack_a);
+		swap_list(stack_a, compt);
 		printf("sa\n");
 	}
 }
 
-void	small_sorting(t_double_list **stack_a, t_double_list **stack_b)
+void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
 	t_double_list	*temp;
 	int				nb;
 
 	if (ft_double_lstsize(*stack_a) < 4)
-		very_small_sorting(stack_a);
+		very_small_sorting(stack_a, compt);
 	else
 	{
 		while (ft_double_lstsize(*stack_a) != 3)
 		{
 			nb = smallest_number_list(stack_a);
-			move_to_top(nb, stack_a);
-			push_list(stack_b, stack_a);
+			move_to_top(nb, stack_a, compt);
+			push_list(stack_b, stack_a, compt);
 			printf("pb\n");
 		}
-		very_small_sorting(stack_a);
+		very_small_sorting(stack_a, compt);
 		if (ft_double_lstsize(*stack_b) > 1)
 			temp = ft_double_lstfirst(*stack_b);
 		while (ft_double_lstsize(*stack_b) > 0)
 		{
-			push_list(stack_a, stack_b);
+			push_list(stack_a, stack_b, compt);
 			printf("pa\n");
 		}
 	}
