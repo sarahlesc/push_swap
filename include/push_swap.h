@@ -28,6 +28,6 @@ int		smallest_number_list(t_double_list **stack);
 int		biggest_number_list(t_double_list **stack);
 int		find_median(t_double_list *stack);
 void	swap_sort(t_double_list **stack);
-
+void	large_sorting(t_double_list **stack_a, t_double_list **stack_b);
 
 #endif

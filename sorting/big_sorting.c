@@ -1,5 +1,25 @@
 #include "../include/push_swap.h"
 
+void	large_sorting(t_double_list **stack_a, t_double_list **stack_b)
+{
+	t_double_list	*temp;
+	int				median;
+	int				i;
+
+	temp = *stack_a;
+	i = 0;
+	median = find_median(temp);
+	while (i < ft_double_lstsize(*stack_a))
+	{
+		if (temp->content < median)
+			push_list(stack_b, stack_a);
+		else
+			rotate_list(stack_a);
+		i++;
+	}
+
+}
+
 int		find_median(t_double_list *stack)
 {
 	int				i;
