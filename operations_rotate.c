@@ -43,8 +43,9 @@ int	reverse_rotate_list(t_double_list **stack, t_compt *compt)
 
 	if (ft_double_lstsize(*stack) == 0 || ft_double_lstsize(*stack) == 1)
 		return (-1);
+	temp1 = *stack;
+	temp2 = ft_double_lstcopy(temp1);
 	temp1 = ft_double_lstlast(*stack);
-	temp2 = ft_double_lstcopy(*stack);
 	store = temp1->content;
 	temp1 = ft_double_lstfirst(*stack);
 	temp1->content = store;
