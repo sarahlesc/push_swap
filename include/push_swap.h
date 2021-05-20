@@ -11,10 +11,11 @@ typedef struct s_compt
 	int	value;
 }			t_compt;
 
-void	check_list(t_double_list *stack_a);
-void	check_duplicates_list(char *str, char **argv, int i);
-void	nb_is_decim(char *str);
-void	print_error(void);
+void	check_list(t_double_list **stack_a);
+void	check_duplicates_list(char *str, char **argv, int i,
+		t_double_list **stack_a);
+void	nb_is_decim(char *str, t_double_list **stack_a, int true_false);
+void	print_error(t_double_list **stack_a);
 int		swap_list(t_double_list **stack, t_compt *compt);
 void	swap_both(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt);

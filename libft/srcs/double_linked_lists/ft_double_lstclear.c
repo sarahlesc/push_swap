@@ -6,7 +6,7 @@
 /*   By: llescure <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 16:35:01 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/17 12:14:59 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/19 22:39:29 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ void	ft_double_lstclear(t_double_list **lst, int pos)
 		temp = (*lst)->next;
 		ft_double_lstdelone(lst, pos);
 		*lst = temp;
-		pos++;
 	}
 }

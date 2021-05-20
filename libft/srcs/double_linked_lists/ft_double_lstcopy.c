@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_double_lstcopy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/15 21:36:50 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/19 21:56:56 by llescure         ###   ########.fr       */
+/*   Created: 2021/05/20 10:25:01 by llescure          #+#    #+#             */
+/*   Updated: 2021/05/20 10:40:11 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_double_list	*ft_double_lstcopy(t_double_list *stack)
 {
-	if ((lst != NULL) || ((*del)))
+	t_double_list	*new;
+
+	new = NULL;
+	while (stack != NULL)
 	{
-		(*del)(lst->content);
-		free(lst);
+		if (new == NULL)
+			new = ft_double_lstnew(stack->content);
+		else
+			ft_double_lstadd_back(&new,
+			ft_double_lstnew(stack->content));
+		stack = stack->next;
 	}
-	return ;
+	return (new);
 }

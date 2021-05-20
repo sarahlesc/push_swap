@@ -6,7 +6,7 @@
 #    By: llescure <llescure@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/26 17:55:58 by llescure          #+#    #+#              #
-#    Updated: 2021/05/12 10:35:11 by llescure         ###   ########.fr        #
+#    Updated: 2021/05/20 10:36:32 by llescure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ BONUS = srcs/linked_lists/ft_lstnew.c \
 		srcs/double_linked_lists/ft_double_lstnew.c \
 		srcs/double_linked_lists/ft_double_lstsize.c \
 		srcs/double_linked_lists/ft_double_print_list.c \
+		srcs/double_linked_lists/ft_double_lstcopy.c \
 
 HEADER = ../libft.h
 

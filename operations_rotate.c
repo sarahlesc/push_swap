@@ -4,19 +4,25 @@ int	rotate_list(t_double_list **stack, t_compt *compt)
 {
 	t_double_list	*temp1;
 	t_double_list	*temp2;
+	int		store;
 
 	if (ft_double_lstsize(*stack) == 0 || ft_double_lstsize(*stack) == 1)
 		return (-1);
 	temp1 = *stack;
-	temp2 = ft_double_lstnew(temp1->content);
+	temp2 = ft_double_lstcopy(temp1);
+	store = temp1->content;
 	temp1 = ft_double_lstlast(*stack);
-	while (temp1->previous != NULL)
+	temp1->content = store;
+	temp1 = temp1->previous;
+	temp2 = ft_double_lstlast(temp2);
+	while (temp2->previous != NULL)
 	{
-		ft_double_lstadd_front(&temp2, ft_double_lstnew(temp1->content));
+		temp1->content = temp2->content;
 		temp1 = temp1->previous;
+		temp2 = temp2->previous;
 	}
-	*stack = temp2;
 	compt->value++;
+	ft_double_lstclear(&temp2, 0);
 	return (0);
 }
 
@@ -33,19 +39,24 @@ int	reverse_rotate_list(t_double_list **stack, t_compt *compt)
 {
 	t_double_list	*temp1;
 	t_double_list	*temp2;
+	int		store;
 
 	if (ft_double_lstsize(*stack) == 0 || ft_double_lstsize(*stack) == 1)
 		return (-1);
 	temp1 = ft_double_lstlast(*stack);
-	temp2 = ft_double_lstnew(temp1->content);
-	temp1 = *stack;
-	while (temp1->next != NULL)
+	temp2 = ft_double_lstcopy(*stack);
+	store = temp1->content;
+	temp1 = ft_double_lstfirst(*stack);
+	temp1->content = store;
+	temp1 = temp1->next;
+	while (temp2->next != NULL)
 	{
-		ft_double_lstadd_back(&temp2, ft_double_lstnew(temp1->content));
+		temp1->content = temp2->content;
 		temp1 = temp1->next;
+		temp2 = temp2->next;
 	}
-	*stack = temp2;
 	compt->value++;
+	ft_double_lstclear(&temp2, 0);
 	return (0);
 }
 

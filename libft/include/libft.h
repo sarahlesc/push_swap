@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/17 16:19:05 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/20 10:34:58 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ t_double_list	*ft_double_lstfirst(t_double_list *lst);
 t_double_list	*ft_double_lstlast(t_double_list *lst);
 int				ft_double_lstsize(t_double_list *lst);
 void			ft_double_print_list(t_double_list *lst);
+t_double_list	*ft_double_lstcopy(t_double_list *lst);
 
 /*
  ** Get_next_line

@@ -4,43 +4,33 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt)
 {
 	t_double_list	*temp;
-	t_double_list	*temp2;
+	t_double_list	*cpy;
 	int				median;
 
 	temp = *stack_a;
-	temp2 = malloc(sizeof(t_double_list) * ft_double_lstsize(temp));
-	*temp2 = *temp;
-//	printf("temp2_before = \n");
-//	ft_double_print_list(temp2);
-	median = find_median(temp2);
-	printf("temp_hello = ");
-	ft_double_print_list(temp);
+	cpy = ft_double_lstcopy(temp);
+	median = find_median(cpy);
 	while (temp->next != NULL)
 	{
 		if (temp->content < median)
 		{
 			move_to_top(temp->content, &temp, compt);
 			push_list(stack_b, stack_a, compt);
+			printf("pb\n");
 		}
 		temp = temp->next;
 	}
+	ft_double_lstclear(&cpy, 0);
 }
 
 int		find_median(t_double_list *stack)
 {
 	int				i;
-	int				first;
-	int				last;
 	int				median;
 	t_double_list	*temp;
 
-	printf("temp2_before = \n");
-	ft_double_print_list(stack);
 	i = 0;
-	temp = ft_double_lstlast(stack);
-	last = temp->content;
 	temp = ft_double_lstfirst(stack);
-	first = temp->content;
 	median = ft_double_lstsize(stack) / 2;
 	swap_sort(&temp);
 	while (i < median)
@@ -49,8 +39,6 @@ int		find_median(t_double_list *stack)
 		i++;
 	}
 	printf("median = %i\n", temp->content);
-	printf("temp2_after = \n");
-	ft_double_print_list(stack);
 	return (temp->content);
 }
 

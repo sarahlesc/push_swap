@@ -12,7 +12,7 @@ void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
 	ft_double_lstsize(*stack_a) <= 500)
 		large_sorting(stack_a, stack_b, compt);
 	else
-		print_error();
+		print_error(stack_a);
 }
 
 void	very_small_sorting(t_double_list **stack_a, t_compt *compt)
@@ -48,7 +48,6 @@ void	very_small_sorting(t_double_list **stack_a, t_compt *compt)
 void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt)
 {
-	t_double_list	*temp;
 	int				nb;
 
 	if (ft_double_lstsize(*stack_a) < 4)
@@ -63,8 +62,6 @@ void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			printf("pb\n");
 		}
 		very_small_sorting(stack_a, compt);
-		if (ft_double_lstsize(*stack_b) > 1)
-			temp = ft_double_lstfirst(*stack_b);
 		while (ft_double_lstsize(*stack_b) > 0)
 		{
 			push_list(stack_a, stack_b, compt);
