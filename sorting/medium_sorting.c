@@ -17,14 +17,14 @@ void	move_to_top(int nb, t_double_list **stack_a, t_compt *compt)
 	t_double_list	*temp;
 
 	i = 0;
-	temp = ft_double_lstfirst(*stack_a);
+	temp = *stack_a;
 	while (nb != temp->content)
 	{
 		i++;
 		temp = temp->next;
 	}
 	temp = ft_double_lstfirst(*stack_a);
-	if (nb < ft_double_lstsize(*stack_a) / 2)
+	if (i < ft_double_lstsize(*stack_a) / 2)
 	{
 		while (i > 0)
 		{
