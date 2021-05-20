@@ -16,6 +16,7 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		{
 			move_to_top(temp->content, &temp, compt);
 			push_list(stack_b, stack_a, compt);
+			temp = *stack_a;
 			printf("pb\n");
 		}
 		temp = temp->next;
