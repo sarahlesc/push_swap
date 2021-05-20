@@ -28,13 +28,11 @@ int	push_list(t_double_list **first_stack,
 		t_double_list **second_stack, t_compt *compt)
 {
 	t_double_list	*temp;
-	t_double_list	*new;
 	int				store;
 
 	temp = *second_stack;
 	store = temp->content;
-	new = ft_double_lstnew(store);
-	ft_double_lstadd_front(first_stack, new);
+	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
 	ft_double_lstdelone(second_stack, 0);
 	compt->value++;
 	return (0);
