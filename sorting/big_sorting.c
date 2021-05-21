@@ -10,31 +10,23 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
 	median = find_median(cpy);
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		printf("temp->content_before_if %d\n", temp->content);
-		if (temp->content < median)
+		if (temp->content <= median)
 		{
-			temp = ft_double_lstfirst(temp);
-			printf("temp->content1 %d\n", temp->content);
-			move_to_top(temp->content, &temp, compt);
-			printf("temp_after_move = \n");
-			ft_double_print_list(temp);
-			push_list(stack_b, &temp, compt);
+			if (temp->previous != NULL)
+				move_to_top(temp->content, stack_a, compt);
+			push_list(stack_b, stack_a, compt);
+			temp = *stack_a;
 			printf("pb\n");
-			printf("temp_after_push = \n");
-			ft_double_print_list(temp);
-			printf("temp->content2 %d\n", temp->content);
 		}
 		else
 			temp = temp->next;
 	}
 	temp = ft_double_lstfirst(temp);
-			printf("stack_a_yo = \n");
-			ft_double_print_list(temp);
-			printf("stack_b_yo = \n");
-			ft_double_print_list(*stack_b);
-
+	printf("temp_after_operation = \n");
+	ft_double_print_list(temp);
 	ft_double_lstclear(&cpy, 0);
 }
 

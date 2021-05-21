@@ -13,33 +13,33 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 
 void	move_to_top(int nb, t_double_list **stack_a, t_compt *compt)
 {
-	int				i;
+	int				pos;
 	t_double_list	*temp;
 
-	i = 0;
+	pos = 0;
 	temp = *stack_a;
 	while (nb != temp->content)
 	{
-		i++;
+		pos++;
 		temp = temp->next;
 	}
 	temp = ft_double_lstfirst(*stack_a);
-	if (i < ft_double_lstsize(*stack_a) / 2)
+	if (pos < ft_double_lstsize(*stack_a) / 2)
 	{
-		while (i > 0)
+		while (pos > 0)
 		{
 			rotate_list(stack_a, compt);
 			printf("ra\n");
-			i--;
+			pos--;
 		}
 	}
 	else
 	{
-		while (i < ft_double_lstsize(*stack_a))
+		while (pos < ft_double_lstsize(*stack_a))
 		{
 			reverse_rotate_list(stack_a, compt);
 			printf("rra\n");
-			i++;
+			pos++;
 		}
 	}
 }
