@@ -26,8 +26,9 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	temp = ft_double_lstfirst(temp);
 	printf("stack_b =\n");
 	ft_double_print_list(*stack_b);
+	ascending_quicksort(stack_a);
+	push_all_to_stack_a(stack_a, stack_b, compt);
 	ft_double_lstclear(&cpy, 0);
-	ft_double_lstclear(stack_b, 0);
 }
 
 int		find_median(t_double_list *stack)
@@ -40,8 +41,6 @@ int		find_median(t_double_list *stack)
 	temp = ft_double_lstfirst(stack);
 	median = ft_double_lstsize(stack) / 2;
 	swap_sort(&temp);
-	//printf("temp = \n");
-	//ft_double_print_list(temp);
 	while (i < median)
 	{
 		temp = temp->next;
@@ -53,25 +52,30 @@ int		find_median(t_double_list *stack)
 
 void	swap_sort(t_double_list **stack)
 {
-		int				store;
-		t_double_list	*temp;
+	int				store;
+	t_double_list	*temp;
 
-		temp = *stack;
-		while (temp->next != NULL)
+	temp = *stack;
+	while (temp->next != NULL)
+	{
+		if (temp->content > temp->next->content)
 		{
-			if (temp->content > temp->next->content)
-			{
-				store = temp->content;
-				temp->content = temp->next->content;
-				temp->next->content = store;
-				temp = ft_double_lstfirst(temp);
-				swap_sort(&temp);
-			}
-			temp = temp->next;
+			store = temp->content;
+			temp->content = temp->next->content;
+			temp->next->content = store;
+			temp = ft_double_lstfirst(temp);
+			swap_sort(&temp);
 		}
+		temp = temp->next;
+	}
 }
 
-/*void	quick_sort(t_double_list **stack)
+void	push_all_to_stack_a(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
 {
-	
-}*/
+	while (*stack_b != NULL)
+	{
+		push_list(stack_a, stack_b, compt);
+		printf("pa\n");
+	}
+}
