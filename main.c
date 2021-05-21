@@ -28,11 +28,8 @@ int	main(int argc, char **argv)
 	printf("\n");
 	printf("stack_a = \n");
 	ft_double_print_list(stack_a);
-	printf("stack_b = \n");
-	ft_double_print_list(stack_b);
 	printf("compteur = %d\n", compt.value);
 	stack_is_sorted(stack_a);
-	stack_a = ft_double_lstfirst(stack_a);
 	ft_double_lstclear(&stack_a, 0);
 	return (0);
 }

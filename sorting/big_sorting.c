@@ -12,7 +12,6 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	median = find_median(cpy);
 	while (temp != NULL)
 	{
-		printf("temp->content_before_if %d\n", temp->content);
 		if (temp->content <= median)
 		{
 			if (temp->previous != NULL)
@@ -25,9 +24,10 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			temp = temp->next;
 	}
 	temp = ft_double_lstfirst(temp);
-	printf("temp_after_operation = \n");
-	ft_double_print_list(temp);
+	printf("stack_b =\n");
+	ft_double_print_list(*stack_b);
 	ft_double_lstclear(&cpy, 0);
+	ft_double_lstclear(stack_b, 0);
 }
 
 int		find_median(t_double_list *stack)

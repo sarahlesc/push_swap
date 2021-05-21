@@ -24,23 +24,11 @@ void	move_to_top(int nb, t_double_list **stack_a, t_compt *compt)
 		temp = temp->next;
 	}
 	temp = ft_double_lstfirst(*stack_a);
-	if (pos < ft_double_lstsize(*stack_a) / 2)
+	while (pos < ft_double_lstsize(*stack_a))
 	{
-		while (pos > 0)
-		{
-			rotate_list(stack_a, compt);
-			printf("ra\n");
-			pos--;
-		}
-	}
-	else
-	{
-		while (pos < ft_double_lstsize(*stack_a))
-		{
-			reverse_rotate_list(stack_a, compt);
-			printf("rra\n");
-			pos++;
-		}
+		reverse_rotate_list(stack_a, compt);
+		printf("rra\n");
+		pos++;
 	}
 }
 
