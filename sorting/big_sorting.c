@@ -26,7 +26,6 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	temp = ft_double_lstfirst(temp);
 	printf("stack_b =\n");
 	ft_double_print_list(*stack_b);
-	ascending_quicksort(stack_a);
 	push_all_to_stack_a(stack_a, stack_b, compt);
 	ft_double_lstclear(&cpy, 0);
 }
