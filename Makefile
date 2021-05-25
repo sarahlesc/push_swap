@@ -7,7 +7,7 @@ SRCS = parsing.c					\
 	  sorting/sorting.c				\
 	  sorting/medium_sorting.c		\
 	  sorting/big_sorting.c			\
-	  sorting/quicksort.c			\
+	  sorting/which_move.c			\
 
 OBJS = $(SRCS:.c=.o)
 
