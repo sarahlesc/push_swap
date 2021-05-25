@@ -1,15 +1,37 @@
 #include "../include/push_swap.h"
 
-/*void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
+void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt)
 {
-	int		nb;
+{
+	t_double_list	*temp;
+	t_double_list	*cpy;
+	int				median;
 
-	(void)stack_b;
-	nb = smallest_number_list(stack_a);
-	move_to_top(nb, stack_a, compt);
-	nb = biggest_number_list(stack_a);
-}*/
+	temp = *stack_a;
+	cpy = ft_double_lstcopy(temp);
+	median = find_median(cpy);
+	while (temp != NULL)
+	{
+		if (temp->content <= median)
+		{
+			if (temp->previous != NULL)
+				move_to_top(temp->content, stack_a, compt);
+			push_list(stack_b, stack_a, compt);
+			temp = *stack_a;
+			printf("pb\n");
+		}
+		else
+			temp = temp->next;
+	}
+	printf("stack_b =\n");
+	ft_double_print_list(*stack_b);
+	printf("stack_a =\n");
+	ft_double_print_list(*stack_a);
+	push_all_to_stack_a(stack_a, stack_b, compt);
+	ft_double_lstclear(&cpy, 0);
+}
+}
 
 void	move_to_top(int nb, t_double_list **stack_a, t_compt *compt)
 {
@@ -48,7 +70,7 @@ int	smallest_number_list(t_double_list **stack_a)
 	return (nb);
 }
 
-/*int	biggest_number_list(t_double_list **stack_a)
+int	biggest_number_list(t_double_list **stack_a)
 {
 	t_double_list	*temp;
 	int				nb;
@@ -62,4 +84,4 @@ int	smallest_number_list(t_double_list **stack_a)
 		temp = temp->next;
 	}
 	return (nb);
-}*/
+}

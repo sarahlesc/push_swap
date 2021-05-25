@@ -7,7 +7,7 @@ void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
 		small_sorting(stack_a, stack_b, compt);
 	else if (ft_double_lstsize(*stack_a) > 10
 		&& ft_double_lstsize(*stack_a) <= 100)
-		large_sorting(stack_a, stack_b, compt);
+		medium_sorting(stack_a, stack_b, compt);
 	else if (ft_double_lstsize(*stack_a) > 100 &&
 	ft_double_lstsize(*stack_a) <= 500)
 		large_sorting(stack_a, stack_b, compt);
