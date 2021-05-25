@@ -3,8 +3,6 @@
 void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt)
 {
-	sort_with_median(stack_a, stack_b, compt);
-//	sort_stack_b(stack_a, stack_b, compt);
 	t_double_list	*temp;
 	t_double_list	*cpy;
 	int				a;
@@ -52,7 +50,7 @@ void 	move_to_stack_b(int median, t_double_list **stack_a, t_double_list **stack
 
 void	move_to_top(int nb, t_double_list **stack, t_compt *compt)
 {
-	int				pos;
+		int				pos;
 	t_double_list	*temp;
 
 	pos = 0;
@@ -63,11 +61,23 @@ void	move_to_top(int nb, t_double_list **stack, t_compt *compt)
 		temp = temp->next;
 	}
 	temp = ft_double_lstfirst(*stack);
-	while (pos < ft_double_lstsize(*stack))
+	if (pos < ft_double_lstsize(*stack) / 2)
 	{
-		reverse_rotate_list(stack, compt);
-		printf("rra\n");
-		pos++;
+		while (pos > 0)
+		{
+			rotate_list(stack, compt);
+			printf("ra\n");
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos < ft_double_lstsize(*stack))
+		{
+			reverse_rotate_list(stack, compt);
+			printf("rra\n");
+			pos++;
+		}
 	}
 }
 
