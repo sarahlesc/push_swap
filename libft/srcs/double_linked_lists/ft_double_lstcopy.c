@@ -6,7 +6,7 @@
 /*   By: llescure <llescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:25:01 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/20 16:51:40 by llescure         ###   ########.fr       */
+/*   Updated: 2021/05/26 21:41:50 by llescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_double_list	*ft_double_lstcopy(t_double_list *stack)
 			new = ft_double_lstnew(stack->content);
 		else
 			ft_double_lstadd_back(&new,
-			ft_double_lstnew(stack->content));
+				ft_double_lstnew(stack->content));
 		stack = stack->next;
 	}
 	return (new);

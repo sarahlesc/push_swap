@@ -1,0 +1,30 @@
+#include "../include/push_swap.h"
+
+void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
+		t_compt *compt)
+{
+	if (ft_double_lstsize(*stack_a) <= 10)
+		small_sorting(stack_a, stack_b, compt);
+	else if (ft_double_lstsize(*stack_a) > 10
+		&& ft_double_lstsize(*stack_a) <= 100)
+		medium_sorting(stack_a, stack_b, compt);
+	else if (ft_double_lstsize(*stack_a) > 100
+		&& ft_double_lstsize(*stack_a) <= 500)
+		large_sorting(stack_a, stack_b, compt);
+	else
+		print_error(stack_a);
+}
+
+void	stack_is_sorted(t_double_list *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->content >= stack->next->content)
+		{
+			printf("KO\n");
+			exit(0);
+		}
+		stack = stack->next;
+	}
+	printf("OK\n");
+}
