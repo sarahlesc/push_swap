@@ -10,11 +10,8 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
 	a = find_median(cpy);
-	printf("stack_b avant =\n");
-	ft_double_print_list(*stack_b);
 	move_to_stack_b(a, stack_a, stack_b, compt);
-	a = biggest_number_list(stack_a);
-	move_to_stack_b(a, stack_a, stack_b, compt);
+	move_to_stack_b_2(a, stack_a, stack_b, compt);
 	a = smallest_number_list(stack_a);
 	temp = *stack_a;
 	while (temp->content != a)
@@ -22,7 +19,8 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	ft_double_lstclear(&cpy, 0);
 }
 
-void 	move_to_stack_b(int median, t_double_list **stack_a, t_double_list **stack_b, t_compt *compt)
+void 	move_to_stack_b(int median, t_double_list **stack_a,
+		t_double_list **stack_b, t_compt *compt)
 {
 	t_double_list	*temp;
 
@@ -30,6 +28,29 @@ void 	move_to_stack_b(int median, t_double_list **stack_a, t_double_list **stack
 	while (temp != NULL)
 	{
 		if (temp->content <= median)
+		{
+			if (temp->previous != NULL)
+				move_to_top(temp->content, stack_a, compt);
+			push_list(stack_b, stack_a, compt);
+			temp = *stack_a;
+			printf("pb\n");
+		}
+		else
+			temp = temp->next;
+	}
+	while (ft_double_lstsize(*stack_b) > 0)
+		sort_stack_b(stack_a, stack_b, compt);
+}
+
+void 	move_to_stack_b_2(int median, t_double_list **stack_a,
+		t_double_list **stack_b, t_compt *compt)
+{
+	t_double_list	*temp;
+
+	temp = *stack_a;;
+	while (temp != NULL)
+	{
+		if (temp->content > median)
 		{
 			if (temp->previous != NULL)
 				move_to_top(temp->content, stack_a, compt);

@@ -53,5 +53,7 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 		t_compt *compt);
 int		smallest_or_biggest(int smallest, int biggest, t_double_list **stack);
 void 	move_to_stack_b(int median, t_double_list **stack_a, t_double_list **stack_b, t_compt *compt);
+void 	move_to_stack_b_2(int median, t_double_list **stack_a, t_double_list **stack_b, t_compt *compt);
+
 
 #endif
