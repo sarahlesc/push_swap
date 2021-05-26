@@ -9,6 +9,11 @@
 typedef struct s_compt
 {
 	int	value;
+	int	quartile_one;
+	int	median;
+	int	quartile_three;
+	int	quartile_four;
+
 }			t_compt;
 
 void	check_list(t_double_list **stack_a);
