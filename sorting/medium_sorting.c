@@ -5,16 +5,16 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 {
 	t_double_list	*temp;
 	t_double_list	*cpy;
-	int				a;
+	int				pivot;
 
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
-	a = find_median(cpy);
-	move_to_stack_b(a, stack_a, stack_b, compt);
-	move_to_stack_b_2(a, stack_a, stack_b, compt);
-	a = smallest_number_list(stack_a);
+	pivot = find_quartiles(2, cpy);
+	move_to_stack_b(pivot, stack_a, stack_b, compt);
+	move_to_stack_a(pivot, stack_a, stack_b, compt);
+	pivot = smallest_number_list(stack_a);
 	temp = *stack_a;
-	while (temp->content != a)
+	while (temp->content != pivot)
 		rotate_list(stack_a, compt);
 	ft_double_lstclear(&cpy, 0);
 }
@@ -42,7 +42,7 @@ void 	move_to_stack_b(int median, t_double_list **stack_a,
 		sort_stack_b(stack_a, stack_b, compt);
 }
 
-void 	move_to_stack_b_2(int median, t_double_list **stack_a,
+void 	move_to_stack_a(int median, t_double_list **stack_a,
 		t_double_list **stack_b, t_compt *compt)
 {
 	t_double_list	*temp;

@@ -9,7 +9,7 @@ void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
-	median = find_median(cpy);
+	median = find_quartiles(2, cpy);
 	while (temp != NULL)
 	{
 		if (temp->content <= median)
@@ -29,14 +29,3 @@ void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 	ft_double_print_list(*stack_a);
 	ft_double_lstclear(&cpy, 0);
 }
-
-/*void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
-	t_compt *compt)
-{
-	int	biggest;
-	int	smallest;
-
-	biggest = biggest_number_list(stack_b);
-	smallest = smallest_number_list(stack_b);
-}*/
-

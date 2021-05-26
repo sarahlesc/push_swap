@@ -11,7 +11,7 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
-	median = find_median(cpy);
+	median = find_quartiles(2, cpy);
 	quartile_one = find_quartiles(1, cpy);
 	quartile_three = find_quartiles(3, cpy);
 	printf("quartile one = %i\n", quartile_one);
@@ -86,25 +86,6 @@ int		smallest_or_biggest(int smallest, int biggest, t_double_list **stack)
 		return (1);
 	else
 		return (2);
-}
-
-int		find_median(t_double_list *stack)
-{
-	int				i;
-	int				median;
-	t_double_list	*temp;
-
-	i = 0;
-	temp = ft_double_lstfirst(stack);
-	median = ft_double_lstsize(stack) / 2;
-	swap_sort(&temp);
-	while (i < median)
-	{
-		temp = temp->next;
-		i++;
-	}
-	printf("median = %i\n", temp->content);
-	return (temp->content);
 }
 
 int		find_quartiles(double q, t_double_list *stack)
