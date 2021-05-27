@@ -8,15 +8,15 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
-	compt->median = find_quartiles(2, cpy);
-	compt->quartile_one = smallest_number_list(stack_a);
-	compt->quartile_three = compt->median;
-	compt->quartile_four = biggest_number_list(stack_a);
-	move_stack_medium(compt->median, stack_a, stack_b, compt);
-	move_stack_medium(compt->quartile_four, stack_a, stack_b, compt);
+	compt->chunk_one = divide_stack_by_three(1, cpy);
+	compt->chunk_two = divide_stack_by_three(2, cpy);
+	compt->chunk_three = biggest_number_list(stack_a);
+	move_stack_medium(compt->chunk_three, stack_a, stack_b, compt);
+	move_stack_medium(compt->chunk_two, stack_a, stack_b, compt);
+	move_stack_medium(compt->chunk_one, stack_a, stack_b, compt);
 	temp = *stack_a;
-	while (temp->content != compt->quartile_one)
-		rotate_list_stack_a(stack_a, compt);
+	while (temp->content != smallest_number_list(stack_a))
+		reverse_rotate_list_stack_a(stack_a, compt);
 	ft_double_lstclear(&cpy, 0);
 }
 
@@ -27,10 +27,12 @@ void	move_stack_medium(int pivot, t_double_list **stack_a,
 	int				min;
 
 	temp = *stack_a;
-	if (pivot == compt->median)
+	if (pivot == compt->chunk_one)
 		min = smallest_number_list(stack_a);
-	else if (pivot == compt->quartile_four)
-		min = compt->median;
+	else if (pivot == compt->chunk_two)
+		min = compt->chunk_one;
+	else if (pivot == compt->chunk_three)
+		min = compt->chunk_two;
 	while (temp != NULL)
 	{
 		if (temp->content <= pivot && temp->content >= min)

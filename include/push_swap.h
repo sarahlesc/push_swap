@@ -9,10 +9,14 @@
 typedef struct s_compt
 {
 	int	value;
-	int	quartile_one;
-	int	median;
-	int	quartile_three;
-	int	quartile_four;
+	int	chunk_one;
+	int	chunk_two;
+	int	chunk_three;
+	int	chunk_four;
+	int	chunk_five;
+	int	chunk_six;
+	int	chunk_seven;
+	int	chunk_eight;
 
 }			t_compt;
 
@@ -63,7 +67,8 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		smallest_number_list(t_double_list **stack);
 int		biggest_number_list(t_double_list **stack);
-int		find_quartiles(double q, t_double_list *stack);
+int		divide_stack_by_three(double q, t_double_list *stack);
+int		divide_stack_by_eight(double q, t_double_list *stack);
 void	swap_sort(t_double_list **stack);
 void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);

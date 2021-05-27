@@ -8,14 +8,22 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 
 	temp = *stack_a;
 	cpy = ft_double_lstcopy(temp);
-	compt->quartile_one = find_quartiles(1, cpy);
-	compt->median = find_quartiles(2, cpy);
-	compt->quartile_three = find_quartiles(3, cpy);
-	compt->quartile_four = biggest_number_list(stack_a);
-	move_stack_large(compt->quartile_four, stack_a, stack_b, compt);
-	move_stack_large(compt->quartile_three, stack_a, stack_b, compt);
-	move_stack_large(compt->median, stack_a, stack_b, compt);
-	move_stack_large(compt->quartile_one, stack_a, stack_b, compt);
+	compt->chunk_one = divide_stack_by_eight(1, cpy);
+	compt->chunk_two = divide_stack_by_eight(2, cpy);
+	compt->chunk_three = divide_stack_by_eight(3, cpy);
+	compt->chunk_four = divide_stack_by_eight(4, cpy);
+	compt->chunk_five = divide_stack_by_eight(5, cpy);
+	compt->chunk_six = divide_stack_by_eight(6, cpy);
+	compt->chunk_seven = divide_stack_by_eight(7, cpy);
+	compt->chunk_eight = biggest_number_list(stack_a);
+	move_stack_large(compt->chunk_eight, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_seven, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_six, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_five, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_four, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_three, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_two, stack_a, stack_b, compt);
+	move_stack_large(compt->chunk_one, stack_a, stack_b, compt);
 	temp = *stack_a;
 	while (temp->content != smallest_number_list(stack_a))
 		reverse_rotate_list_stack_a(stack_a, compt);
@@ -51,13 +59,21 @@ int		get_minimum(int pivot, t_double_list **stack_a, t_compt *compt)
 	int				min;
 
 	min = 0;
-	if (pivot == compt->quartile_one)
+	if (pivot == compt->chunk_one)
 		min = smallest_number_list(stack_a);
-	else if (pivot == compt->median)
-		min = compt->quartile_one;
-	else if (pivot == compt->quartile_three)
-		min = compt->median;
-	else if (pivot == compt->quartile_four)
-		min = compt->quartile_three;
+	else if (pivot == compt->chunk_two)
+		min = compt->chunk_one;
+	else if (pivot == compt->chunk_three)
+		min = compt->chunk_two;
+	else if (pivot == compt->chunk_four)
+		min = compt->chunk_three;
+	else if (pivot == compt->chunk_five)
+		min = compt->chunk_four;
+	else if (pivot == compt->chunk_six)
+		min = compt->chunk_five;
+	else if (pivot == compt->chunk_seven)
+		min = compt->chunk_six;
+	else if (pivot == compt->chunk_eight)
+		min = compt->chunk_seven;
 	return (min);
 }

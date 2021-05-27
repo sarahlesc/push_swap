@@ -32,7 +32,7 @@ int		biggest_number_list(t_double_list **stack_a)
 	return (nb);
 }
 
-int		find_quartiles(double q, t_double_list *stack)
+int		divide_stack_by_three(double q, t_double_list *stack)
 {
 	int				i;
 	double			quartile;
@@ -40,14 +40,31 @@ int		find_quartiles(double q, t_double_list *stack)
 
 	i = 0;
 	temp = ft_double_lstfirst(stack);
-	quartile = ft_double_lstsize(stack) * (q / 4);
+	quartile = ft_double_lstsize(stack) * (q / 3);
 	swap_sort(&temp);
 	while (i < quartile)
 	{
 		temp = temp->next;
 		i++;
 	}
-	printf("quartile = %i\n", temp->content);
+	return (temp->content);
+}
+
+int		divide_stack_by_eight(double q, t_double_list *stack)
+{
+	int				i;
+	double			quintile;
+	t_double_list	*temp;
+
+	i = 0;
+	temp = ft_double_lstfirst(stack);
+	quintile = ft_double_lstsize(stack) * (q / 8);
+	swap_sort(&temp);
+	while (i < quintile)
+	{
+		temp = temp->next;
+		i++;
+	}
 	return (temp->content);
 }
 
