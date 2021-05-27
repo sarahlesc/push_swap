@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	check_list(&stack_a);
-	printf("stack_a = \n");
-	ft_double_print_list(stack_a);
+//	printf("stack_a = \n");
+//	ft_double_print_list(stack_a);
 	call_push_swap(&stack_a, &stack_b, &compt);
 	printf("\n");
 	printf("stack_a = \n");

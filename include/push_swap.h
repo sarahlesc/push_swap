@@ -70,10 +70,10 @@ void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		smallest_or_biggest(int smallest, int biggest, t_double_list **stack);
-void	move_to_stack_b(int pivot, t_double_list **stack_a,
+void	move_stack_medium(int pivot, t_double_list **stack_a,
 			t_double_list **stack_b,
 			t_compt *compt);
-void	move_to_stack_a(int pivot, t_double_list **stack_a,
+void	move_stack_large(int pivot, t_double_list **stack_a,
 			t_double_list **stack_b, t_compt *compt);
 void	push_all_to_stack_a(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);

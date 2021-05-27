@@ -12,7 +12,7 @@ int	swap_list_stack_a(t_double_list **stack_a, t_compt *compt)
 	temp->content = temp->next->content;
 	temp->next->content = store;
 	compt->value++;
-	printf("sa\n");
+//	printf("sa\n");
 	return (0);
 }
 
@@ -28,7 +28,7 @@ int	swap_list_stack_b(t_double_list **stack_b, t_compt *compt)
 	temp->content = temp->next->content;
 	temp->next->content = store;
 	compt->value++;
-	printf("sb\n");
+//	printf("sb\n");
 	return (0);
 }
 
@@ -52,7 +52,7 @@ int	push_list_to_stack_a(t_double_list **first_stack,
 	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
 	ft_double_lstdelone(second_stack, 0);
 	compt->value++;
-	printf("pa\n");
+//	printf("pa\n");
 	return (0);
 }
 
@@ -68,6 +68,6 @@ int	push_list_to_stack_b(t_double_list **first_stack,
 	ft_double_lstadd_front(first_stack, ft_double_lstnew(store));
 	ft_double_lstdelone(second_stack, 0);
 	compt->value++;
-	printf("pb\n");
+//	printf("pb\n");
 	return (0);
 }
