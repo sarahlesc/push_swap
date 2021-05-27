@@ -51,7 +51,7 @@ int	find_quartiles(double q, t_double_list *stack)
 	return (temp->content);
 }
 
-int	smallest_or_biggest(int smallest, int biggest, t_double_list **stack)
+int	smallest_to_use(int smallest, int biggest, t_double_list **stack)
 {
 	int				i;
 	int				j;

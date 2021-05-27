@@ -59,7 +59,7 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 
 	smallest = smallest_number_list(stack_b);
 	biggest = biggest_number_list(stack_b);
-	if (smallest_or_biggest(smallest, biggest, stack_b) == 1)
+	if (smallest_to_use(smallest, biggest, stack_b) == 1)
 	{
 		move_to_top(smallest, stack_b, compt);
 		push_list_to_stack_a(stack_a, stack_b, compt);
@@ -70,11 +70,4 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 		move_to_top(biggest, stack_b, compt);
 		push_list_to_stack_a(stack_a, stack_b, compt);
 	}
-}
-
-void	push_all_to_stack_a(t_double_list **stack_a, t_double_list **stack_b,
-		t_compt *compt)
-{
-	while (*stack_b != NULL)
-		push_list_to_stack_a(stack_a, stack_b, compt);
 }
