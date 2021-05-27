@@ -1,11 +1,9 @@
 #include "../include/push_swap.h"
 
-void	move_to_top(int nb, t_double_list **stack, t_compt *compt)
+void	move_to_top(int nb, t_double_list **stack, t_compt *compt, int pos)
 {
-	int				pos;
 	t_double_list	*temp;
 
-	pos = 0;
 	temp = *stack;
 	while (nb != temp->content)
 	{
@@ -61,13 +59,13 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 	biggest = biggest_number_list(stack_b);
 	if (smallest_to_use(smallest, biggest, stack_b) == 1)
 	{
-		move_to_top(smallest, stack_b, compt);
+		move_to_top(smallest, stack_b, compt, 0);
 		push_list_to_stack_a(stack_a, stack_b, compt);
 		rotate_list_stack_a(stack_a, compt);
 	}
 	else
 	{
-		move_to_top(biggest, stack_b, compt);
+		move_to_top(biggest, stack_b, compt, 0);
 		push_list_to_stack_a(stack_a, stack_b, compt);
 	}
 }

@@ -47,7 +47,7 @@ int		reverse_rotate_list_stack_a(t_double_list **stack_a, t_compt *compt);
 int		reverse_rotate_list_stack_b(t_double_list **stack_b, t_compt *compt);
 void	reverse_rotate_both(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
-
+void	push_swap_stacks(t_double_list **stack_a, t_compt *compt);
 void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 void	very_small_sorting(t_double_list **stack_a, t_compt *compt);
@@ -57,8 +57,8 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
-void	stack_is_sorted(t_double_list *stack);
-void	move_to_top(int nb, t_double_list **stack, t_compt *compt);
+int		stack_is_sorted(t_double_list *stack);
+void	move_to_top(int nb, t_double_list **stack, t_compt *compt, int pos);
 void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		smallest_number_list(t_double_list **stack);
@@ -70,9 +70,10 @@ void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		smallest_to_use(int smallest, int biggest, t_double_list **stack);
+int		get_minimum(int pivot, t_double_list **stack_a, t_compt *compt);
+int		compare_nb_operations(int i, int j, t_double_list **temp);
 void	move_stack_medium(int pivot, t_double_list **stack_a,
-			t_double_list **stack_b,
-			t_compt *compt);
+			t_double_list **stack_b, t_compt *compt);
 void	move_stack_large(int pivot, t_double_list **stack_a,
 			t_double_list **stack_b, t_compt *compt);
 #endif

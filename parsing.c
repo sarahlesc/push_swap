@@ -15,7 +15,7 @@ void	check_list(t_double_list **stack_a)
 }
 
 void	check_duplicates_list(char *str, char **argv, int i, t_double_list
-	**stack_a)
+		**stack_a)
 {
 	int	j;
 	int	value;

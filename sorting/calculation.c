@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-int	smallest_number_list(t_double_list **stack_a)
+int		smallest_number_list(t_double_list **stack_a)
 {
 	t_double_list	*temp;
 	int				nb;
@@ -16,7 +16,7 @@ int	smallest_number_list(t_double_list **stack_a)
 	return (nb);
 }
 
-int	biggest_number_list(t_double_list **stack_a)
+int		biggest_number_list(t_double_list **stack_a)
 {
 	t_double_list	*temp;
 	int				nb;
@@ -32,7 +32,7 @@ int	biggest_number_list(t_double_list **stack_a)
 	return (nb);
 }
 
-int	find_quartiles(double q, t_double_list *stack)
+int		find_quartiles(double q, t_double_list *stack)
 {
 	int				i;
 	double			quartile;
@@ -51,11 +51,10 @@ int	find_quartiles(double q, t_double_list *stack)
 	return (temp->content);
 }
 
-int	smallest_to_use(int smallest, int biggest, t_double_list **stack)
+int		smallest_to_use(int smallest, int biggest, t_double_list **stack)
 {
 	int				i;
 	int				j;
-	int				a;
 	t_double_list	*temp;
 
 	temp = *stack;
@@ -73,7 +72,19 @@ int	smallest_to_use(int smallest, int biggest, t_double_list **stack)
 		j++;
 	}
 	temp = ft_double_lstfirst(temp);
+	if (compare_nb_operations(i, j, stack) == 1)
+		return (1);
+	else
+		return (2);
+}
+
+int		compare_nb_operations(int i, int j, t_double_list **stack)
+{
+	int				a;
+	t_double_list	*temp;
+
 	a = i;
+	temp = *stack;
 	if (a > ft_double_lstsize(temp) - i)
 		a = ft_double_lstsize(temp) - i;
 	if (a <= j && (a <= ft_double_lstsize(temp) - j))

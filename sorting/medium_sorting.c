@@ -20,7 +20,7 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	ft_double_lstclear(&cpy, 0);
 }
 
-void 	move_stack_medium(int pivot, t_double_list **stack_a,
+void	move_stack_medium(int pivot, t_double_list **stack_a,
 		t_double_list **stack_b, t_compt *compt)
 {
 	t_double_list	*temp;
@@ -36,7 +36,7 @@ void 	move_stack_medium(int pivot, t_double_list **stack_a,
 		if (temp->content <= pivot && temp->content >= min)
 		{
 			if (temp->previous != NULL)
-				move_to_top(temp->content, stack_a, compt);
+				move_to_top(temp->content, stack_a, compt, 0);
 			push_list_to_stack_b(stack_b, stack_a, compt);
 			temp = *stack_a;
 		}

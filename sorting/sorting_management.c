@@ -15,16 +15,16 @@ void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
 		print_error(stack_a);
 }
 
-void	stack_is_sorted(t_double_list *stack)
+int		stack_is_sorted(t_double_list *stack)
 {
 	while (stack->next != NULL)
 	{
 		if (stack->content >= stack->next->content)
 		{
-			printf("KO\n");
-			exit(0);
+			printf("stack->content = %i\n", stack->content);
+			return (-1);
 		}
 		stack = stack->next;
 	}
-	printf("OK\n");
+	return (0);
 }

@@ -15,7 +15,7 @@ void	sort_with_median(t_double_list **stack_a, t_double_list **stack_b,
 		if (temp->content <= median)
 		{
 			if (temp->previous != NULL)
-				move_to_top(temp->content, stack_a, compt);
+				move_to_top(temp->content, stack_a, compt, 0);
 			push_list(stack_b, stack_a, compt);
 			temp = *stack_a;
 			printf("pb\n");

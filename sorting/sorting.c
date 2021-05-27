@@ -22,27 +22,15 @@ void	very_small_sorting(t_double_list **stack_a, t_compt *compt)
 
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (temp2->content > temp2->next->content)
-	{
-		swap_list(stack_a, compt);
-		printf("sa\n");
-	}
+		swap_list_stack_a(stack_a, compt);
 	temp = ft_double_lstlast(*stack_a);
 	if (temp->content < temp->previous->content)
-	{
-		reverse_rotate_list(stack_a, compt);
-		printf("rra\n");
-	}
+		reverse_rotate_list_stack_a(stack_a, compt);
 	temp2 = ft_double_lstfirst(*stack_a);
 	if (temp2->content > temp->content)
-	{
-		reverse_rotate_list(stack_a, compt);
-		printf("rra\n");
-	}
+		reverse_rotate_list_stack_a(stack_a, compt);
 	if (temp2->content > temp2->next->content)
-	{
-		swap_list(stack_a, compt);
-		printf("sa\n");
-	}
+		swap_list_stack_a(stack_a, compt);
 }
 
 void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
@@ -57,7 +45,7 @@ void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		while (ft_double_lstsize(*stack_a) != 3)
 		{
 			nb = smallest_number_list(stack_a);
-			move_to_top(nb, stack_a, compt);
+			move_to_top(nb, stack_a, compt, 0);
 			push_list(stack_b, stack_a, compt);
 			printf("pb\n");
 		}
@@ -68,18 +56,4 @@ void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			printf("pa\n");
 		}
 	}
-}
-
-void	stack_is_sorted(t_double_list *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->content >= stack->next->content)
-		{
-			printf("KO\n"); // faire une fonction pour bien sortir en free tout ?
-			exit(0);
-		}
-		stack = stack->next;
-	}
-	printf("OK\n");
 }

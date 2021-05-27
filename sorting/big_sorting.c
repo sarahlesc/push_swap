@@ -22,29 +22,20 @@ void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 	ft_double_lstclear(&cpy, 0);
 }
 
-void 	move_stack_large(int pivot, t_double_list **stack_a,
+void	move_stack_large(int pivot, t_double_list **stack_a,
 		t_double_list **stack_b, t_compt *compt)
 {
 	t_double_list	*temp;
 	int				min;
 
 	temp = *stack_a;
-	if (pivot == compt->quartile_one)
-		min = smallest_number_list(stack_a);
-	else if (pivot == compt->median)
-		min = compt->quartile_one;
-	else if (pivot == compt->quartile_three)
-		min = compt->median;
-	else if (pivot == compt->quartile_four)
-		min = compt->quartile_three;
-	printf("pivot = %d\n", pivot);
-	printf("min = %d\n", min);
+	min = get_minimum(pivot, stack_a, compt);
 	while (temp != NULL)
 	{
 		if (temp->content <= pivot && temp->content >= min)
 		{
 			if (temp->previous != NULL)
-				move_to_top(temp->content, stack_a, compt);
+				move_to_top(temp->content, stack_a, compt, 0);
 			push_list_to_stack_b(stack_b, stack_a, compt);
 			temp = *stack_a;
 		}
@@ -53,4 +44,20 @@ void 	move_stack_large(int pivot, t_double_list **stack_a,
 	}
 	while (ft_double_lstsize(*stack_b) > 0)
 		sort_stack_b(stack_a, stack_b, compt);
+}
+
+int		get_minimum(int pivot, t_double_list **stack_a, t_compt *compt)
+{
+	int				min;
+
+	min = 0;
+	if (pivot == compt->quartile_one)
+		min = smallest_number_list(stack_a);
+	else if (pivot == compt->median)
+		min = compt->quartile_one;
+	else if (pivot == compt->quartile_three)
+		min = compt->median;
+	else if (pivot == compt->quartile_four)
+		min = compt->quartile_three;
+	return (min);
 }
