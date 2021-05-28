@@ -74,7 +74,6 @@ void	swap_sort(t_double_list **stack)
 			temp->content = temp->next->content;
 			temp->next->content = store;
 			temp = ft_double_lstfirst(temp);
-			swap_sort(&temp);
 		}
 		temp = temp->next;
 	}
