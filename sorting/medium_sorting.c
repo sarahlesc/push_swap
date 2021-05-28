@@ -38,7 +38,7 @@ void	move_stack_medium(int pivot, t_double_list **stack_a,
 		if (temp->content <= pivot && temp->content >= min)
 		{
 			if (temp->previous != NULL)
-				move_to_top(temp->content, stack_a, compt, 0);
+				move_to_top_stack_a(temp->content, stack_a, compt, 0);
 			push_list_to_stack_b(stack_b, stack_a, compt);
 			temp = *stack_a;
 		}

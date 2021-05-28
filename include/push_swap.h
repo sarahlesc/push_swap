@@ -62,7 +62,10 @@ void	medium_sorting(t_double_list **stack_a, t_double_list **stack_b,
 void	large_sorting(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		stack_is_sorted(t_double_list *stack);
-void	move_to_top(int nb, t_double_list **stack, t_compt *compt, int pos);
+void	move_to_top_stack_a(int nb, t_double_list **stack, t_compt *compt,
+				int pos);
+void	move_to_top_stack_b(int nb, t_double_list **stack, t_compt *compt,
+				int pos);
 void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 			t_compt *compt);
 int		smallest_number_list(t_double_list **stack);

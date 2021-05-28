@@ -23,7 +23,7 @@ int	reverse_rotate_list_stack_a(t_double_list **stack_a, t_compt *compt)
 	compt->value++;
 	temp2 = ft_double_lstfirst(temp2);
 	ft_double_lstclear(&temp2, 0);
-//	printf("rra\n");
+	printf("rra\n");
 	return (0);
 }
 
@@ -50,7 +50,7 @@ int	reverse_rotate_list_stack_b(t_double_list **stack_b, t_compt *compt)
 	compt->value++;
 	temp2 = ft_double_lstfirst(temp2);
 	ft_double_lstclear(&temp2, 0);
-//	printf("rrb\n");
+	printf("rrb\n");
 	return (0);
 }
 

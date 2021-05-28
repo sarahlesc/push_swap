@@ -30,7 +30,7 @@ void	small_sorting(t_double_list **stack_a, t_double_list **stack_b,
 		while (ft_double_lstsize(*stack_a) != 3)
 		{
 			nb = smallest_number_list(stack_a);
-			move_to_top(nb, stack_a, compt, 0);
+			move_to_top_stack_a(nb, stack_a, compt, 0);
 			push_list_to_stack_b(stack_b, stack_a, compt);
 		}
 		very_small_sorting(stack_a, compt);

@@ -23,7 +23,7 @@ int	rotate_list_stack_a(t_double_list **stack_a, t_compt *compt)
 	}
 	compt->value++;
 	ft_double_lstclear(&temp2, 0);
-//	printf("ra\n");
+	printf("ra\n");
 	return (0);
 }
 
@@ -50,7 +50,7 @@ int	rotate_list_stack_b(t_double_list **stack_b, t_compt *compt)
 	}
 	compt->value++;
 	ft_double_lstclear(&temp2, 0);
-//	printf("rb\n");
+	printf("rb\n");
 	return (0);
 }
 
