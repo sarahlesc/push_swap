@@ -56,7 +56,6 @@ int	push_list_to_stack_a(t_double_list **first_stack,
 	return (0);
 }
 
-
 int	push_list_to_stack_b(t_double_list **first_stack,
 		t_double_list **second_stack, t_compt *compt)
 {

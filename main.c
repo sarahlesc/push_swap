@@ -1,6 +1,6 @@
 #include "include/push_swap.h"
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int				i;
 	t_double_list	*stack_a;
