@@ -54,7 +54,7 @@ void	move_stack_large(int pivot, t_double_list **stack_a,
 		sort_stack_b(stack_a, stack_b, compt);
 }
 
-int		get_minimum(int pivot, t_double_list **stack_a, t_compt *compt)
+int	get_minimum(int pivot, t_double_list **stack_a, t_compt *compt)
 {
 	int				min;
 

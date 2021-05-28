@@ -15,7 +15,7 @@ void	call_push_swap(t_double_list **stack_a, t_double_list **stack_b,
 		print_error(stack_a);
 }
 
-int		stack_is_sorted(t_double_list *stack)
+int	stack_is_sorted(t_double_list *stack)
 {
 	while (stack->next != NULL)
 	{

@@ -100,3 +100,18 @@ void	sort_stack_b(t_double_list **stack_a, t_double_list **stack_b,
 		push_list_to_stack_a(stack_a, stack_b, compt);
 	}
 }
+
+int	compare_nb_operations(int i, int j, t_double_list **stack)
+{
+	int				a;
+	t_double_list	*temp;
+
+	a = i;
+	temp = *stack;
+	if (a > ft_double_lstsize(temp) - i)
+		a = ft_double_lstsize(temp) - i;
+	if (a <= j && (a <= ft_double_lstsize(temp) - j))
+		return (1);
+	else
+		return (2);
+}

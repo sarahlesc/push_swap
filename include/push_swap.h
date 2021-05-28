@@ -30,7 +30,6 @@ void	check_duplicates_list(char *str, char **argv, int i,
 void	nb_is_decim(char *str, t_double_list **stack_a, int true_false);
 void	print_error(t_double_list **stack_a);
 
-
 /*
 ** Operations
 */
