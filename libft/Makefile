@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: llescure <llescure@42.fr>                  +#+  +:+       +#+         #
+#    By: slescure <slescure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/10/26 17:55:58 by llescure          #+#    #+#              #
-#    Updated: 2021/05/20 10:36:32 by llescure         ###   ########.fr        #
+#    Created: 2021/06/02 13:50:47 by slescure          #+#    #+#              #
+#    Updated: 2021/06/02 13:50:48 by slescure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ fclean: clean
 
 re: fclean all
 
-bonus : 
+bonus :
 	$(MAKE) WITH_BONUS=1 all
 
 .PHONY: all clean fclean re bonus

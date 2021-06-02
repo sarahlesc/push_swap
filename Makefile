@@ -1,7 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: slescure <slescure@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/02 13:51:58 by slescure          #+#    #+#              #
+#    Updated: 2021/06/02 14:35:29 by slescure         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 SRCS = main.c					\
-	  parsing.c						\
+	  parsing/parsing.c						\
 	  operations/operations_push_swap.c		\
 	  operations/operations_rotate.c			\
 	  operations/operations_reverse_rotate.c			\
@@ -52,6 +64,7 @@ clean:
 
 fclean:  clean
 	@echo "$(RED)Deleting executables$(RESET)"
+	make fclean -C libft
 	@($(RM) $(NAME))
 
 re: fclean all

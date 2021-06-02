@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: slescure <slescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 20:02:11 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/20 10:34:58 by llescure         ###   ########.fr       */
+/*   Created: 2021/06/02 13:18:42 by slescure          #+#    #+#             */
+/*   Updated: 2021/06/02 13:19:12 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int				ft_isdigit(int c);
  ** Convert
 */
 
-int				ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 char			*ft_itoa(int n);
 int				ft_tolower(int c);
 int				ft_toupper(int c);

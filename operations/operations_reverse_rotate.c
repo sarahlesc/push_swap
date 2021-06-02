@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_reverse_rotate.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slescure <slescure@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/02 13:28:46 by slescure          #+#    #+#             */
+/*   Updated: 2021/06/02 13:28:46 by slescure         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	reverse_rotate_list_stack_a(t_double_list **stack_a, t_compt *compt)

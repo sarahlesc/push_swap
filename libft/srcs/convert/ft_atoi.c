@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llescure <llescure@42.fr>                  +#+  +:+       +#+        */
+/*   By: slescure <slescure@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 23:10:04 by llescure          #+#    #+#             */
-/*   Updated: 2021/05/06 15:19:05 by llescure         ###   ########.fr       */
+/*   Created: 2021/06/02 13:28:21 by slescure          #+#    #+#             */
+/*   Updated: 2021/06/02 13:28:25 by slescure         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ long	ft_check_sign(const char *str)
 	return (sign);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int						i;
 	long					rslt;
