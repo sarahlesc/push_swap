@@ -39,15 +39,25 @@ Pour verifier que les nombres sont bien triés dans l'ordre croissant :
 ```
 
 ## Performances :
+- moyenne de 5 pour 5 nombres
+- moyenne de 8 pour 10 nombres
 - moyenne de 714 sur 100 nombres
 - moyenne de 6600 sur 500 nombres
 
-## TUTO :
+## TUTORIEL :
 J'ai séparé le programme en quatre parties : very_small_sorting, small_sorting, medium_sorting et large_sorting.
 - very_small_sorting trie les listes de 3 nombres maximum
 - small_sorting trie les listes de 10 nombres maximum
 - medium_sorting trie les listes de 100 nombres maximum
 - large_sorting trie les listes de 500 nombres maximum
 
-## SOURCES :
-- https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a : très interessant pour les listes de 2 à 10 nombres.
+### Very_small_sorting and small_sorting :
+https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a est un tuto parfait pour comprendre comment bien gérer les listes inférieures à 10.
+
+### medium_sorting :
+Je commence d'abord à découper la liste en trois morceaux. Pour cela je trie une copie de la liste et je trouve le dernier nombre de chaque morceau de liste.
+Puis j'envoie le premier morceau de la liste dans la stack_b. J'envoie ensuite en debut de la stack_b le plus petit ou le plus grand nombre, en fonction du quel est le plus proche du top. Je le push ensuite dans la stack_a et si c'est le plus grand nombre je le rotate à la fin de la stack_a.
+Je fais la même chose pour les deux autres morceaux. Quand tous les morceaux ont été trié, je ramène le plus petit nombre de la liste au top de la stack_a. La liste est enfin triée.
+
+### large_sorting :
+Je fais exactement la même chose que pour medium_sorting mais cette fois-ci je découpe la liste en 8 morceaux.
