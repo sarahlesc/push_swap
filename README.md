@@ -44,7 +44,7 @@ Pour verifier que les nombres sont bien triés dans l'ordre croissant :
 - moyenne de 714 sur 100 nombres
 - moyenne de 6600 sur 500 nombres
 
-## TUTORIEL :
+## Tutoriel :
 J'ai séparé le programme en quatre parties : very_small_sorting, small_sorting, medium_sorting et large_sorting.
 - very_small_sorting trie les listes de 3 nombres maximum
 - small_sorting trie les listes de 10 nombres maximum
